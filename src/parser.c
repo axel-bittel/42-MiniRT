@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 22:37:08 by abittel           #+#    #+#             */
-/*   Updated: 2022/04/21 18:07:20 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/16 21:25:14 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ int	read_line(char *line, t_datas *data)
 	if (!ft_strncmp(line, "", 1) || !ft_strncmp(line, "\n", 2))
 		return (0);
 	line_splt = ft_split(line, ' ');
-	if (!ft_strncmp(line_splt[0], "sp", 2))
+	if (!ft_strncmp(line_splt[0], "sp", 3))
 		parser_add_sp(data, line_splt);
-	else if (!ft_strncmp(line_splt[0], "pl", 2))
+	else if (!ft_strncmp(line_splt[0], "pl", 3))
 		parser_add_pl(data, line_splt);
-	else if (!ft_strncmp(line_splt[0], "cy", 2))
+	else if (!ft_strncmp(line_splt[0], "cy", 3))
 		parser_add_cy(data, line_splt);
 	else if (!ft_strncmp(line_splt[0], "A", 2))
 		return (parser_add_a(data, line_splt), 1);
@@ -63,6 +63,6 @@ int	parse_file(char *file, t_datas *data)
 		uniq = uniq | inter;
 		free(line);
 		line = mini_gnl(fd);
-	}	
+	}
 	return (1);
 }
