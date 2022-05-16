@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 11:20:08 by abittel           #+#    #+#             */
-/*   Updated: 2022/04/21 18:08:14 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/16 18:49:04 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ int		parser_add_c(t_datas *data, char **line_spl);
 int		parser_add_sp(t_datas *data, char **line_spl);
 int		parser_add_pl(t_datas *data, char **line_spl);
 int		parser_add_cy(t_datas *data, char **line_spl);
+
 #endif

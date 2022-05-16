@@ -3,21 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   obj.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:59:23 by abittel           #+#    #+#             */
-/*   Updated: 2022/04/23 16:09:28 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/16 19:01:36 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OBJ_H
 # define OBJ_H
+# include "vector3.h"
+# include "mlx_visual.h"
+
 # define TYPE_SPHERE 1
 # define TYPE_PLANE 2
 # define TYPE_CYLINDER 3
 # define PI 3.14
-# include "vector3.h"
-# include "mlx_visual.h"
 
 typedef struct s_ray
 {
@@ -58,14 +59,14 @@ typedef struct s_obj
 	t_vect3	color;
 }				t_obj;
 
-typedef struct s_ligth
+typedef struct s_light
 {
 	t_vect3	pos;
 	t_vect3	color;
 	float	intensity;
 	float	ratio;
 	int		is_ambiante;
-}				t_ligth;
+}				t_light;
 
 typedef struct s_scene
 {
@@ -74,9 +75,9 @@ typedef struct s_scene
 	t_ray	cam;
 	t_vect3	cam_up;
 	t_vect3	cam_right;
-	t_ligth	l_amb;
-	t_ligth	l;
-	t_ligth	**l_tab;
+	t_light	l_amb;
+	t_light	l;
+	t_light	**l_tab;
 }				t_scene;
 
 typedef struct s_datas
@@ -104,7 +105,6 @@ typedef struct s_res
 	t_vect3	intensity_two;
 	t_vect3	intersec;
 	t_vect3	normal;
-
 }				t_res;
 
 int		is_intersection(t_ray dir, t_obj o, t_vect3 *inter, t_vect3 *norm);
@@ -118,6 +118,7 @@ int		lunch_cmd(t_datas *data);
 int		refresh_screen(t_datas *data);
 void	print_min_intersec(t_datas *data, t_ray inter, int i, int j);
 int		print_scene(t_datas *data);
-t_ligth	**add_tab_light(t_ligth **tab, t_ligth *new);
-void	free_tab_ligth(t_ligth **tab);
+t_light	**add_tab_light(t_light **tab, t_light *new);
+void	free_tab_ligth(t_light **tab);
+
 #endif

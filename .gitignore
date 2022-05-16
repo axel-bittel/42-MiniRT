@@ -1,0 +1,9 @@
+.DS_Store
+a.out
+.vscode
+libft/*.o
+src/*.o
+*.a
+*.dSYM
+*.icloud
+MiniRT

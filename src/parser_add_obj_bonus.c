@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_add_obj_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 18:02:18 by abittel           #+#    #+#             */
-/*   Updated: 2022/04/23 17:17:26 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/16 19:02:01 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 
 int	parser_add_l(t_datas *data, char **line_spl)
 {
-	t_ligth	*new;
+	t_light	*new;
 
-	new = malloc(sizeof(t_ligth));
+	new = malloc(sizeof(t_light));
 	new->pos = read_vect(line_spl[1], data);
 	new->ratio = ft_atof(line_spl[2]);
 	new->color = read_vect(line_spl[3], data);

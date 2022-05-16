@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_input.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 14:53:07 by abittel           #+#    #+#             */
-/*   Updated: 2022/04/26 10:37:43 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/16 18:48:48 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CMD_INPUT_H
 # define CMD_INPUT_H
+
 # define KEY_A 0
 # define KEY_S 1
 # define KEY_D 2
@@ -57,7 +58,7 @@
 # define KEY_M 46
 # define KEY_TAB 48
 # define KEY_SPACE 49
-# define KEY_DELETE 51 
+# define KEY_DELETE 51
 # define KEY_PLUS 69
 # define KEY_MINUS 78
 # define KEY_LEFT 123
@@ -65,5 +66,6 @@
 # define KEY_DOWN 125
 # define KEY_UP 126
 
-int map_key(int keycode);
+int	map_key(int keycode);
+
 #endif

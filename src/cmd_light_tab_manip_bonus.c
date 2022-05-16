@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_light_tab_manip_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 12:19:53 by abittel           #+#    #+#             */
-/*   Updated: 2022/04/23 13:13:15 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/16 19:01:56 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-t_ligth	**add_tab_light(t_ligth **tab, t_ligth *new)
+t_light	**add_tab_light(t_light **tab, t_light *new)
 {
 	int		i;
-	t_ligth	**res;
+	t_light	**res;
 
 	i = 0;
 	while (tab && tab[i])
 		i++;
-	res = malloc (sizeof(t_ligth *) * (i + 2));
+	res = malloc (sizeof(t_light *) * (i + 2));
 	res[i + 1] = NULL;
 	i = 0;
 	while (tab && tab[i])
@@ -35,7 +35,7 @@ t_ligth	**add_tab_light(t_ligth **tab, t_ligth *new)
 	return (res);
 }
 
-void	free_tab_ligth(t_ligth **tab)
+void	free_tab_ligth(t_light **tab)
 {
 	int	i;
 
