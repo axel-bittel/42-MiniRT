@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 13:08:35 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/17 19:40:27 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/17 20:07:00 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	press_key(int keycode, t_datas *data)
 	}
 	else if (data->put_cmd == 1)
 		press_cmd(keycode, data, inter, pos);
-	if (keycode == 65307)
+	if (keycode == 65307) // ? KEY_ESC = 53 :  do a close_win(data); ?
 	{
 		data->run = 0;
 		mlx_destroy_window(data->mlx, data->mlx_win);
@@ -116,10 +116,19 @@ else if (VECTOR3_SIZE == 255)//! test
 		data = init();
 		parse_file(argv[1], data);
 		refresh_screen(data);
-		mlx_hook(data->mlx_win, 2, 1L << 0, press_key, data);
+		mlx_hook(data->mlx_win, X_EVENT_KEY_PRESS, 1L << 0, press_key, data);
+		mlx_hook(data->mlx_win, EXIT_CROSS, 1L << 17, close_win, data); //* added for red-cross
 		mlx_loop(data->mlx);
 	}
 	else
 		ft_putstr_fd("ARG NUMBER ERROR !\n", 1);
 	return (0);
+}
+
+int	close_win(t_datas *data)
+{
+// data->run = 0; //* to add ?
+	mlx_destroy_window(data->mlx, data->mlx_win);
+	mlx_destroy_image(data->mlx, data->img.img);
+	exit(EXIT_SUCCESS);
 }

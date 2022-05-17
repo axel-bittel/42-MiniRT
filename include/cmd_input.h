@@ -6,13 +6,17 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 14:53:07 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/16 18:48:48 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/17 19:58:47 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CMD_INPUT_H
 # define CMD_INPUT_H
 
+# define X_EVENT_KEY_PRESS 2
+# define EXIT_CROSS 17
+
+# define KEY_ESC 53
 # define KEY_A 0
 # define KEY_S 1
 # define KEY_D 2
