@@ -13,8 +13,8 @@
 NAME			=	MiniRT
 NAMEB			=	MiniRT_bonus
 
-ARG				=	${MAP_DIR}/map.rt
-ARGB			=	${MAP_DIR}/map_copy.rt
+ARG				=	${MAP_DIR}/map_test2.rt
+ARGB			=	${MAP_DIR}/map_bonus.rt
 
 UNAME_S			:=	$(shell uname -s)
 
@@ -120,7 +120,7 @@ ${LIBFT_LIB} 	:
 
 all			:	${NAME}
 
-bonus		:	$(OLIBVISUAL) ${OBSRCS} ${LIBFT_LIB}
+bonus		:	$(OLIBVISUAL) ${OBSRCS} ${LIBFT_LIB} ${MLX_LIB}
 				${CC} ${CFLAGS} ${OFLAGS} ${LDFLAGS} ${MLXFLAGS} $(OLIBVISUAL) ${OBSRCS} -o $(NAMEB) -g
 #$(CC) $(OLIBVISUAL) ${OBSRCS} ${INCLUDES} ${LDFLAGS} -L${LIBVISUAL_DIR}/minilibx-linux -lm -lmlx -lXext -lX11 -lm -lz -o $(NAME) -g
 

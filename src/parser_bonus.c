@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 22:37:08 by abittel           #+#    #+#             */
-/*   Updated: 2022/04/23 13:26:06 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/17 23:37:43 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	read_line(char *line, t_datas *data)
 	else if (!ft_strncmp(line_splt[0], "C", 2))
 		return (parser_add_c(data, line_splt), 4);
 	else
-		return (print_error(data), -1);
+		return (print_error(data, ERR_FILE_CONTENT), -1);
 	return (0);
 }
 
@@ -53,16 +53,38 @@ int	parse_file(char *file, t_datas *data)
 	fd = open(file, O_RDONLY);
 	data->scene = ft_calloc(sizeof(t_scene), 1);
 	if (fd == -1)
-		print_error(data);
+		print_error(data, ERR_OPEN_FILE);
 	line = mini_gnl(fd);
 	while (line)
 	{
 		inter = read_line(line, data);
 		if (uniq & inter)
-			print_error(data);
+			print_error(data, ERR_FILE_CONTENT);
 		uniq = uniq | inter;
 		free(line);
 		line = mini_gnl(fd);
-	}	
+	}
 	return (1);
+}
+
+int	check_file_ext(char *filename, t_datas *data)
+{
+	char	*ext;
+
+	ext = ".rt";
+	while ((*filename != '.') && *filename)
+		++filename;
+	while (*ext)
+	{
+		if (*filename == *ext)
+		{
+			++filename;
+			++ext;
+		}
+		else
+			print_error(data, ERR_FILENAME_FORMAT);
+	}
+	if (*filename)
+		print_error(data, ERR_FILENAME_FORMAT);
+	return (TRUE);
 }

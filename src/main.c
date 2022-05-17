@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 13:08:35 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/17 20:07:00 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/17 21:26:18 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ else if (VECTOR3_SIZE == 255)//! test
 	if (argc == 2)
 	{
 		data = init();
+		check_file_ext(argv[1], data);
 		parse_file(argv[1], data);
 		refresh_screen(data);
 		mlx_hook(data->mlx_win, X_EVENT_KEY_PRESS, 1L << 0, press_key, data);
