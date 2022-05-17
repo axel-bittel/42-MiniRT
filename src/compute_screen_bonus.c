@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 21:59:49 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/16 20:49:36 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/17 19:07:54 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,16 +108,12 @@ void	print_min_intersec(t_datas *data, t_ray inter, int i, int j)
 		return ;
 	}
 	get_shadows(data, &res);
+
 	put_pixel(&data->img, j, i, rgb_to_hex(minf(255., (res.intensity.x + \
 add_vect3(res.intensitys, 1, data->scene->nb_light))), minf(255.f, (\
 res.intensity.y + add_vect3(res.intensitys, 2, data->scene->nb_light))), \
 minf((res.intensity.z + add_vect3(res.intensitys, 3, data->scene->nb_light)), \
-255.f), 0));
-// 	put_pixel(&data->img, j, i, rgb_to_hex(minf(255., (res.intensity.x + \
-// add_vect3(res.intensitys, 1, data->scene->nb_light))), minf(255.f, (\
-// res.intensity.y + add_vect3(res.intensitys, 2, data->scene->nb_light))), \
-// minf((res.intensity.z + add_vect3(res.intensitys, 3, data->scene->nb_light)), \
-// 255.f), 255));
+255.f), VECTOR3_SIZE));
 	free(res.intensitys);
 }
 

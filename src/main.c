@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 13:08:35 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/12 18:02:49 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/17 19:11:50 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,11 @@ int	press_key(int keycode, t_datas *data)
 int	main(int argc, char **argv)
 {
 	t_datas	*data;
+
+if (VECTOR3_SIZE == 0)//! test
+	printf("TEST : VECTOR3_SIZE = %d - OS = MACOS\n", VECTOR3_SIZE); //! test
+else if (VECTOR3_SIZE == 255)//! test
+	printf("TEST : VECTOR3_SIZE = %d - OS = LINUX\n", VECTOR3_SIZE); //! test
 
 	if (argc == 2)
 	{

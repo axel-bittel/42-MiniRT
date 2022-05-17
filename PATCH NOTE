@@ -1,6 +1,6 @@
 Bugs releves a corriger :
+- Executable ne se ferme pas si on clique sur la croix rouge (Ok avec ESC)
 -
-
 
 
 
@@ -10,3 +10,4 @@ Bugs releves a corriger :
 ************************************
 PATCH NOTE :
 - Added makefile full clean and multi OS Compilation
+- 

@@ -17,11 +17,14 @@ ARG				=	${MAP_DIR}/map.rt
 ARGB			=	${MAP_DIR}/map_copy.rt
 
 UNAME_S			:=	$(shell uname -s)
+
 ifeq ($(UNAME_S),Darwin)
-	MLX_DIR			=	${LIBVISUAL_DIR}/minilibx
+OSFLAG			=	-D OSX
+MLX_DIR			=	${LIBVISUAL_DIR}/minilibx
 endif
 ifeq ($(UNAME_S),Linux)
-	MLX_DIR			=	${LIBVISUAL_DIR}/minilibx-linux
+OSFLAG			=	-D LINUX
+MLX_DIR			=	${LIBVISUAL_DIR}/minilibx-linux
 endif
 
 SRC_DIR			=	src
@@ -97,8 +100,8 @@ MLXFLAGS		=	-L${MLX_DIR} -lmlx -framework OpenGL -framework AppKit
 %.o				:	%.c
 					@echo "${TXT_BLUE}"
 					@echo "~~~~~~~ MAKE PROJECT ~~~~~~~~"
-					${CC} ${CFLAGS} ${INCLUDES} -c $< -o ${<:.c=.o} -g
-#${CC} ${CFLAGS} $(ARG) ${INCLUDES} -L${LIBVISUAL_DIR}/minilibx-linux -I${LIBVISUAL_DIR}/minilibx-linux -Llibft -lft -c $< -o ${<:.c=.o} -g
+					${CC} ${CFLAGS} ${INCLUDES} ${OSFLAG} -c $< -o ${<:.c=.o} -g
+#${CC} ${CFLAGS} $(ARG) ${INCLUDES} -L${LIBVISUAL_DIR}/minilibx-linux -I${LIBVISUAL_DIR}/minilibx-linux -c $< -o ${<:.c=.o} -g
 					@echo "${FANCY_RESET}"
 
 ${NAME}			:	$(OLIBVISUAL) ${OSRCS} ${LIBFT_LIB} ${MLX_LIB}
@@ -142,7 +145,7 @@ fclean		:	clean
 
 re			:	fclean all
 
-.PHONY		:	all clean fclean re
+.PHONY		:	all clean fclean re bonus
 ############### PARTIE TEST ###############
 test		:
 				make
