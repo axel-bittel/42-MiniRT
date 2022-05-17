@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:59:23 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/17 19:06:23 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/17 19:36:05 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include "vector3.h"
 # include "mlx_visual.h"
 
-# ifdef OSX
+# ifdef MACOS
 #  define VECTOR3_SIZE 0
 # endif
 # ifdef LINUX

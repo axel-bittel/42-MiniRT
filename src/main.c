@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 13:08:35 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/17 19:11:50 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/17 19:40:27 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,11 @@ int	main(int argc, char **argv)
 {
 	t_datas	*data;
 
+printf("\033[1;31m----> TEST : VECTOR3_SIZE = %d\033[0m\n", VECTOR3_SIZE); //! test
 if (VECTOR3_SIZE == 0)//! test
-	printf("TEST : VECTOR3_SIZE = %d - OS = MACOS\n", VECTOR3_SIZE); //! test
+	printf("\033[1;31m--> OS = MACOS\033[0m\n"); //! test
 else if (VECTOR3_SIZE == 255)//! test
-	printf("TEST : VECTOR3_SIZE = %d - OS = LINUX\n", VECTOR3_SIZE); //! test
+	printf("\033[1;31m--> OS = LINUX\033[0m\n"); //! test
 
 	if (argc == 2)
 	{

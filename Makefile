@@ -19,11 +19,11 @@ ARGB			=	${MAP_DIR}/map_copy.rt
 UNAME_S			:=	$(shell uname -s)
 
 ifeq ($(UNAME_S),Darwin)
-OSFLAG			=	-D OSX
+OSFLAG			=	-DMACOS
 MLX_DIR			=	${LIBVISUAL_DIR}/minilibx
 endif
 ifeq ($(UNAME_S),Linux)
-OSFLAG			=	-D LINUX
+OSFLAG			=	-DLINUX
 MLX_DIR			=	${LIBVISUAL_DIR}/minilibx-linux
 endif
 
