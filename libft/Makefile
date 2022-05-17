@@ -19,7 +19,7 @@ NAME	=	libft.a
 
 all : ${NAME}
 
-%.o: %.c 
+%.o: %.c
 	gcc -Wall -Werror -Wextra -c $< -o ${<:.c=.o}
 bonus :	${OSRCS} ${OBONUS}
 	ar crs ${NAME} ${OSRCS} ${OBONUS}
@@ -32,3 +32,12 @@ fclean : clean
 re : fclean all
 
 .PHONY: all clean fclean re
+
+#COLORS
+TXT_RED		=	\033[1;31m
+TXT_GREEN	=	\033[1;32m
+TXT_YELLOW	=	\033[1;33m
+TXT_BLUE	=	\033[1;34m
+TXT_MAGENTA	=	\033[1;35m
+TXT_CYAN	=	\033[1;36m
+FANCY_RESET	=	\033[0m
