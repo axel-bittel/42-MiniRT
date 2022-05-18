@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 18:03:32 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 18:41:52 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/18 18:45:51 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,8 @@ int	parse_file(char *file, t_datas *data)
 	uniq = 0;
 	fd = open(file, O_RDONLY);
 	data->scene = ft_calloc(sizeof(t_scene), 1);
+	data->scene->l.intensity = 300000000.f / 255.f;
+	data->scene->l_amb.intensity = 1;
 	if (fd == -1)
 		print_error(data, ERR_OPEN_FILE);
 	line = mini_gnl(fd);
