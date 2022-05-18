@@ -45,5 +45,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		i++;
 	}
 	res[i - (size_t)start] = 0;
+	if (s)
+		free((char *)s);
 	return (res);
 }
