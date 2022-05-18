@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 13:08:35 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 14:57:18 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/18 16:10:18 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,8 @@ int	press_key(int keycode, t_datas *data)
 	pos.size_y = 40;
 	pos.x = 0;
 	pos.y = 0;
-	keycode = map_key(keycode);
+	if (!VECTOR3_SIZE)
+		keycode = map_key(keycode);
 	if (keycode == 'c' && data->put_cmd == 0)
 	{
 		data->put_cmd = 1;
