@@ -6,7 +6,7 @@
 /*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 13:08:35 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 14:23:05 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/18 15:21:15 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	press_key(int keycode, t_datas *data)
 	pos.size_y = 40;
 	pos.x = 0;
 	pos.y = 0;
-	//keycode = map_key(keycode);
+	keycode = map_key(keycode);
 	if (keycode == 'c' && data->put_cmd == 0)
 	{
 		data->put_cmd = 1;
