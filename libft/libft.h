@@ -54,6 +54,10 @@ char			*ft_strjoin2(char *s1, char *s2);
 char			*ft_strjoin3(char *s1, char *s2);
 char			*ft_free_ptr(char *ptr);
 void			ft_free_tab(char **tab);
+int				is_sep(char a, char *sep);
+int				ft_wordcount(char *str, char *charset);
+char			**ft_wordalloc(char *str, char *charset);
+char			**ft_split_charset(char *str, char *charset);
 
 typedef struct s_args_idx
 {

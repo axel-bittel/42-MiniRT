@@ -109,7 +109,7 @@ ${NAME}			:	$(OLIBVISUAL) ${OSRCS} ${LIBFT_LIB} ${MLX_LIB}
 					@echo "${TXT_YELLOW}"
 					@echo "~~~~~~~ COMPILATION ~~~~~~~~~"
 					@echo "${TXT_GREEN}"
-					${CC} ${OLIBVISUAL} ${OSRCS} ${CFLAGS} ${LDFLAGS} ${MLXFLAGS} -o ${NAME} -g
+					${CC} ${OLIBVISUAL} ${OSRCS} ${CFLAGS} ${OFLAGS} ${LDFLAGS} ${MLXFLAGS} -o ${NAME} -g
 #$(CC) $(OLIBVISUAL) ${OSRCS} ${INCLUDES} ${LDFLAGS} -L${LIBVISUAL_DIR}/minilibx-linux -lm -lmlx -lXext -lX11 -lz -o $(NAME) -g
 					@echo "${FANCY_RESET}"
 
