@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   obj.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:59:23 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 12:36:40 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/18 14:09:56 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@
 
 # ifdef MACOS
 #  define VECTOR3_SIZE 0
-#endif
-#ifdef LINUX
+# endif
+# ifdef LINUX
 #  define VECTOR3_SIZE 255
-#elif __linux__
-#  define VECTOR3_SIZE 100 
 # endif
 
 # define TYPE_SPHERE 1
