@@ -6,7 +6,7 @@
 /*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:55:12 by abittel           #+#    #+#             */
-/*   Updated: 2022/04/20 17:21:27 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/18 14:32:42 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int	get_prop(char **str, t_vect3 *v, char *prop)
 	t_vect3	inter;
 
 	i = -1;
+	*v = (t_vect3){0.f,0.f,0.f};
 	while (str[++i])
 	{
 		if (!ft_strncmp(str[i], prop, ft_strlen(prop)))

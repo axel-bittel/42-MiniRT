@@ -6,7 +6,7 @@
 /*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:55:55 by abittel           #+#    #+#             */
-/*   Updated: 2022/04/20 17:17:11 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/18 14:25:21 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	*create_new_cylinder(char **str)
 
 	res = malloc(sizeof(t_cylinder));
 	res->pos = (get_prop(str, &inter, "pos="), inter);
-	res->dir = (get_prop(str, &inter, "rot="), inter);
+	res->dir = (get_prop(str, &inter, "dir="), inter);
 	res->rayon = (get_fprop(str, &finter, "rayon="), finter);
 	res->hauteur = (get_fprop(str, &finter, "hauteur="), finter);
 	return ((void *)res);
