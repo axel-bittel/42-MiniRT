@@ -1,19 +1,39 @@
 Bugs releves a corriger :
 - valeurs Color a print en entier et float (lors de list)
-- Pas de lumiere sur tous les objets si le plan est devant ou egal a L
-L -50,-75,0 0.99 255,255,255
-pl -50,-76,0 1,0,0        255,0,0
 
 Parsing a ajouter :
 - Tester les cas max / min et les int/floats
 
-- A tester les valeurs float type 0.1a45
+- Check les valeurs entrees en commande manuelle
 
-- Check nombre de variables sur la ligne, ok si incomplet ou range mais pas d erreur si un param de trop !
-A 0.2 255,255,255 1
+- Si on envoie que 2 args a L il plante
+./MiniRT map/bad_content2.rt
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==70046==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x00010129d98e bp 0x7ff7bec6b5f0 sp 0x7ff7bec6b5a0 T0)
+==70046==The signal is caused by a READ memory access.
+==70046==Hint: address points to the zero page.
+    #0 0x10129d98e in read_vect parser_utils.c:76
+    #1 0x10129c8c8 in parser_add_l parser_add_obj.c:25
+    #2 0x10129a8d8 in line_checker parser.c:54
+    #3 0x10129a744 in read_line parser.c:35
+    #4 0x10129a9ff in parse_file parser.c:79
+    #5 0x1012974ea in main main.c:109
+    #6 0x10f59751d in start+0x1cd (dyld:x86_64+0x551d)
+
+==70046==Register values:
+rax = 0x0000000000000000  rbx = 0x00000001012ce060  rcx = 0x0000000000000000  rdx = 0x0000000000000003
+rdi = 0x0000000000000000  rsi = 0x0000608000000c20  rbp = 0x00007ff7bec6b5f0  rsp = 0x00007ff7bec6b5a0
+ r8 = 0x0000000101812eb8   r9 = 0x00000000000143eb  r10 = 0x0000000000000007  r11 = 0x0000000000000000
+r12 = 0x000000010f6123a0  r13 = 0x00007ff7bec6b808  r14 = 0x00000001012974a0  r15 = 0x000000010f5fe010
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV parser_utils.c:76 in read_vect
+==70046==ABORTING
 
 *******************************************************************
 PATCHED NOTE :
+- A tester les valeurs float type 0.1a45
+- Check nombre de variables sur la ligne, ok si incomplet ou range mais pas d erreur si un param de trop !
 - Gerer les tab ?
 - Added makefile full clean and multi OS Compilation
 - Executable ne se ferme pas si on clique sur la croix rouge (Ok avec ESC)
