@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 22:37:08 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 18:21:49 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/18 18:59:57 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	read_line(char *line, t_datas *data)
 		return (print_error(data, ERR_FILE_CONTENT), \
 		ft_free_tab(line_splt), -1);
 	ret = line_checker(line_splt, data, nb_args, 0);
-	printf("%d\n", ret); // !Test
 	if (ret != 0)
 		return (ret);
 	ft_free_tab(line_splt);

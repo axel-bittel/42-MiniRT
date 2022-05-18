@@ -13,8 +13,8 @@
 NAME			=	MiniRT
 NAMEB			=	MiniRT_bonus
 
-ARG				=	${MAP_DIR}/bad_content2.rt
-ARGB			=	${MAP_DIR}/bad_content2.rt
+ARG				=	${MAP_DIR}/map.rt
+ARGB			=	${MAP_DIR}/map_bonus.rt
 
 UNAME_S			:=	$(shell uname -s)
 
