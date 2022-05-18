@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 13:08:35 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 12:48:26 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/18 13:49:37 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,12 +91,8 @@ int	press_key(int keycode, t_datas *data)
 	}
 	else if (data->put_cmd == 1)
 		press_cmd(keycode, data, inter, pos);
-	if (keycode == 65307) // ? KEY_ESC = 53 :  do a close_win(data); ?
-	{
-		data->run = 0;
-		mlx_destroy_window(data->mlx, data->mlx_win);
-		exit(0);
-	}
+	if (keycode == 65307)
+		close_win(data);
 	mlx_do_sync(data->mlx);
 	return (0);
 }
@@ -105,12 +101,6 @@ int	main(int argc, char **argv)
 {
 	t_datas	*data;
 
-	printf("\033[1;31m----> TEST : VECTOR3_SIZE = %d\033[0m\n", VECTOR3_SIZE); //! test
-	if (VECTOR3_SIZE == 0)//! test
-		printf("\033[1;31m--> OS = MACOS\033[0m\n"); //! test
-	else if (VECTOR3_SIZE == 255)//! test
-		printf("\033[1;31m--> OS = LINUX\033[0m\n"); //! test
-
 	if (argc == 2)
 	{
 		data = init();
@@ -118,7 +108,7 @@ int	main(int argc, char **argv)
 		parse_file(argv[1], data);
 		refresh_screen(data);
 		mlx_hook(data->mlx_win, X_EVENT_KEY_PRESS, 1L << 0, press_key, data);
-		mlx_hook(data->mlx_win, EXIT_CROSS, 1L << 17, close_win, data); //* added for red-cross
+		mlx_hook(data->mlx_win, EXIT_CROSS, 1L << 17, close_win, data);
 		mlx_loop(data->mlx);
 	}
 	else
@@ -128,7 +118,6 @@ int	main(int argc, char **argv)
 
 int	close_win(t_datas *data)
 {
-// data->run = 0; //* to add ?
 	mlx_destroy_window(data->mlx, data->mlx_win);
 	mlx_destroy_image(data->mlx, data->img.img);
 	exit(EXIT_SUCCESS);

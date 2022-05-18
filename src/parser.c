@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 22:37:08 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/17 21:20:08 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/18 14:01:07 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,15 @@ int	read_line(char *line, t_datas *data)
 	else if (!ft_strncmp(line_splt[0], "cy", 3))
 		parser_add_cy(data, line_splt);
 	else if (!ft_strncmp(line_splt[0], "A", 2))
-		return (parser_add_a(data, line_splt), 1);
+		return (parser_add_a(data, line_splt), ft_free_tab(line_splt), 1);
 	else if (!ft_strncmp(line_splt[0], "L", 2))
-		return (parser_add_l(data, line_splt), 2);
+		return (parser_add_l(data, line_splt), ft_free_tab(line_splt), 2);
 	else if (!ft_strncmp(line_splt[0], "C", 2))
-		return (parser_add_c(data, line_splt), 4);
+		return (parser_add_c(data, line_splt), ft_free_tab(line_splt), 4);
 	else
-		return (print_error(data, ERR_FILE_CONTENT), -1);
+		return (print_error(data, ERR_FILE_CONTENT), \
+		ft_free_tab(line_splt), -1);
+	ft_free_tab(line_splt);
 	return (0);
 }
 
@@ -65,6 +67,7 @@ int	parse_file(char *file, t_datas *data)
 		free(line);
 		line = mini_gnl(fd);
 	}
+	free(line);
 	return (1);
 }
 

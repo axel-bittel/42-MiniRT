@@ -13,7 +13,7 @@
 NAME			=	MiniRT
 NAMEB			=	MiniRT_bonus
 
-ARG				=	${MAP_DIR}/map_test2.rt
+ARG				=	${MAP_DIR}/map.rt
 ARGB			=	${MAP_DIR}/map_bonus.rt
 
 UNAME_S			:=	$(shell uname -s)
@@ -101,16 +101,16 @@ LDFLAGS			=	-L. -L${LIBFT_DIR} -lft
 %.o				:	%.c
 					@echo "${TXT_BLUE}"
 					@echo "~~~~~~~ MAKE PROJECT ~~~~~~~~"
-					${CC} ${CFLAGS} ${INCLUDES} -c $< -o ${<:.c=.o} -g
-					#${CC} ${CFLAGS} $(ARG) ${INCLUDES} -L${LIBVISUAL_DIR}/minilibx-linux -I${LIBVISUAL_DIR}/minilibx-linux -c $< -o ${<:.c=.o} -g
+					${CC} ${CFLAGS} ${INCLUDES} ${OSFLAG} -c $< -o ${<:.c=.o} -g
+#${CC} ${CFLAGS} $(ARG) ${INCLUDES} -L${LIBVISUAL_DIR}/minilibx-linux -I${LIBVISUAL_DIR}/minilibx-linux -c $< -o ${<:.c=.o} -g
 					@echo "${FANCY_RESET}"
 
-${NAME}			:	$(OLIBVISUAL) ${OSRCS} ${LIBFT_LIB} ${MLX_LIB}	
+${NAME}			:	$(OLIBVISUAL) ${OSRCS} ${LIBFT_LIB} ${MLX_LIB}
 					@echo "${TXT_YELLOW}"
 					@echo "~~~~~~~ COMPILATION ~~~~~~~~~"
 					@echo "${TXT_GREEN}"
 					${CC} ${OLIBVISUAL} ${OSRCS} ${CFLAGS} ${LDFLAGS} ${MLXFLAGS} -o ${NAME} -g
-					#$(CC) $(OLIBVISUAL) ${OSRCS} ${INCLUDES} ${LDFLAGS} -L${LIBVISUAL_DIR}/minilibx-linux -lm -lmlx -lXext -lX11 -lz -o $(NAME) -g
+#$(CC) $(OLIBVISUAL) ${OSRCS} ${INCLUDES} ${LDFLAGS} -L${LIBVISUAL_DIR}/minilibx-linux -lm -lmlx -lXext -lX11 -lz -o $(NAME) -g
 					@echo "${FANCY_RESET}"
 
 ${MLX_LIB}		:

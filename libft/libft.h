@@ -37,6 +37,7 @@ char			*ft_strchr(char *s, int c);
 char			*ft_strdup(char *s);
 void			ft_striteri(char *s, void (*f)(unsigned int, char *));
 char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strjoin_free_s1(char *s1, char const *s2);
 unsigned int	ft_strlcat(char *dest, const char *src, unsigned int size);
 size_t			ft_strlcpy(char *dest, const char *src, size_t size);
 size_t			ft_strlen(const char *s);
@@ -51,6 +52,9 @@ int				ft_toupper(int c);
 void			ft_putfloat_fd(float n, int fd, int precision);
 char			*ft_strjoin2(char *s1, char *s2);
 char			*ft_strjoin3(char *s1, char *s2);
+char			*ft_free_ptr(char *ptr);
+void			ft_free_tab(char **tab);
+
 typedef struct s_args_idx
 {
 	int	i;
