@@ -6,7 +6,7 @@
 /*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 18:02:43 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 14:38:07 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/18 15:12:17 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ t_vect3 *inter, t_vect3 *norm)
 	is_disque = 0;
 	is_int = is_int_bd_cy(new_dir, c, &inter_body) + is_int_cy_d(new_dir, \
 &inter_d_up, c, 1) * 2 + is_int_cy_d(new_dir, &inter_d_down, c, 0) * 4;
-	if (!(is_int & 1) + !(is_int & 2) + !(is_int & 4) == 3 || fabsf(c.dir.x) + fabsf(c.dir.y) + fabsf(c.dir.z) == 0.f) 
+	if (!(is_int & 1) + !(is_int & 2) + !(is_int & 4) == 3 || is_null(&c.dir))
 		return (0);
 	*inter = add_vects(mult_scal(new_dir.dir, inter_body), new_dir.pos);
 	if ((is_int & 4) && (inter_d_down < inter_body || !(is_int & 1)) && \
