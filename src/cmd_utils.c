@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 16:07:34 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 14:14:51 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/18 16:29:38 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ float	ft_atof(char *s)
 	is_float = 0;
 	while (s[++i] && s[i] != ',')
 	{
-		if (s[i] == '-')
+		if (s[0] == '-')
 			neg = -1;
-		else if (ft_isdigit(s[i]) && !is_float)
+		if (ft_isdigit(s[i]) && !is_float)
 			res = res * 10 + (s[i] - 48);
 		else if (ft_isdigit(s[i]) && is_float)
 			res = res + powf(10, -(is_float++)) * (s[i] - 48);
