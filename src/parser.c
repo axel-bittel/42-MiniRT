@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 22:37:08 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 14:42:46 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/18 15:17:14 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ int	read_line(char *line, t_datas *data)
 	if (!ft_strncmp(line, "", 1) || !ft_strncmp(line, "\n", 2))
 		return (0);
 	line_splt = ft_split_charset(line, " \t");
+	if (check_line_split(line_splt))
+		return (print_error(data, ERR_FILE_CONTENT), \
+		ft_free_tab(line_splt), -1);
 	if (!ft_strncmp(line_splt[0], "sp", 3))
 		parser_add_sp(data, line_splt);
 	else if (!ft_strncmp(line_splt[0], "pl", 3))

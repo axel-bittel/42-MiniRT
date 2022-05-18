@@ -88,6 +88,8 @@ int	ft_atoi(const char *nprt)
 	long long	res;
 	int			i;
 
+	if (!nprt)
+		return (0);
 	if (!ft_strcmp((char *)nprt, "-2147483648"))
 		return (-2147483648);
 	else

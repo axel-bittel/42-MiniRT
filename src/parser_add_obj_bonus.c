@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 18:02:18 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/17 21:09:27 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/18 15:35:34 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,8 @@ int	parser_add_pl(t_datas *data, char **line_spl)
 	if (!is_good_color(res->color, data) || !is_good_dir(((t_plane *)res->\
 	obj)->v1, data))
 		print_error(data, ERR_DATA);
-	res->is_damier = ft_atoi(line_spl[4]);
+	if (line_spl[4])
+		res->is_damier = ft_atoi(line_spl[4]);
 	data->scene->objs = add_tab_obj(data->scene->objs, res);
 	return (1);
 }

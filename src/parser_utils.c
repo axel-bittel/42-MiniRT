@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 18:03:32 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/17 21:27:50 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/18 15:21:35 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,6 @@
 #include <math.h>
 #include "libft.h"
 #include "parser.h"
-
-// void	print_error(t_datas *data)
-// {
-// 	ft_putstr_fd("Error\n", 1);
-// 	free_tab_obj(data->scene->objs);
-// 	free(data->scene);
-// 	exit (0);
-// }
 
 void	print_error(t_datas *data, size_t err)
 {
@@ -48,6 +40,28 @@ void	print_error(t_datas *data, size_t err)
 	if (data->scene)
 		free(data->scene);
 	exit(EXIT_FAILURE);
+}
+
+int	check_line_split(char **line_splt)
+{
+	int		i;
+	int		j;
+
+	i = 1;
+	while (line_splt[i])
+	{
+		j = 0;
+		while (line_splt[i][j])
+		{
+			if (!ft_isdigit(line_splt[i][j]) && \
+			line_splt[i][j] != '.' && line_splt[i][j] != ',' && \
+			line_splt[i][j] != '+' && line_splt[i][j] != '-')
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
 
 t_vect3	read_vect(char *v, t_datas *data)
