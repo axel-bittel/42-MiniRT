@@ -6,7 +6,7 @@
 /*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:59:03 by abittel           #+#    #+#             */
-/*   Updated: 2022/04/20 17:15:43 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/18 12:40:32 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ void	change_obj_light(t_datas *data, int idx, char **cmd)
 			data->scene->cam.dir = inter;
 			data->scene->cam_right = norm_vect(prod_vect(data->scene->cam.dir, \
 	(t_vect3){0.f, -1.f, 0.f}));
-			if (data->scene->cam.dir.x == 0.f && data->scene->cam.dir.y == \
-	-1.f && data->scene->cam.dir.z == 0.f)
+			if (data->scene->cam.dir.x == 0.f && fabsf(data->scene->cam.dir.y) == \
+	1.f && data->scene->cam.dir.z == 0.f)
 				data->scene->cam_right = norm_vect(prod_vect(\
 data->scene->cam.dir, (t_vect3){1.f, 0.f, 0.f}));
 			data->scene->cam_up = norm_vect(prod_vect(data->scene->cam.dir, \

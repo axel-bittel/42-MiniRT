@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 12:04:12 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/17 22:58:34 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/18 12:41:39 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CMD_H
 # include "libft.h"
 # include "obj.h"
+#include <math.h>
 
 # define ADD_CMD	1
 # define LIST_CMD	2

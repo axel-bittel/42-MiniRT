@@ -21,10 +21,12 @@ UNAME_S			:=	$(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
 OSFLAG			=	-DMACOS
 MLX_DIR			=	${LIBVISUAL_DIR}/minilibx
+MLXFLAGS		=	-L${MLX_DIR} -lmlx -framework OpenGL -framework AppKit
 endif
 ifeq ($(UNAME_S),Linux)
 OSFLAG			=	-DLINUX
 MLX_DIR			=	${LIBVISUAL_DIR}/minilibx-linux
+MLXFLAGS		=	-L${MLX_DIR} -lm -lmlx -lXext -lX11 -lz
 endif
 
 SRC_DIR			=	src
@@ -95,21 +97,20 @@ OBSRCS			=	${BSRCS:.c=.o}
 OLIBVISUAL		=	${LIBVISUAL:.c=.o}
 
 LDFLAGS			=	-L. -L${LIBFT_DIR} -lft
-MLXFLAGS		=	-L${MLX_DIR} -lmlx -framework OpenGL -framework AppKit
 
 %.o				:	%.c
 					@echo "${TXT_BLUE}"
 					@echo "~~~~~~~ MAKE PROJECT ~~~~~~~~"
-					${CC} ${CFLAGS} ${INCLUDES} ${OSFLAG} -c $< -o ${<:.c=.o} -g
-#${CC} ${CFLAGS} $(ARG) ${INCLUDES} -L${LIBVISUAL_DIR}/minilibx-linux -I${LIBVISUAL_DIR}/minilibx-linux -c $< -o ${<:.c=.o} -g
+					${CC} ${CFLAGS} ${INCLUDES} -c $< -o ${<:.c=.o} -g
+					#${CC} ${CFLAGS} $(ARG) ${INCLUDES} -L${LIBVISUAL_DIR}/minilibx-linux -I${LIBVISUAL_DIR}/minilibx-linux -c $< -o ${<:.c=.o} -g
 					@echo "${FANCY_RESET}"
 
-${NAME}			:	$(OLIBVISUAL) ${OSRCS} ${LIBFT_LIB} ${MLX_LIB}
+${NAME}			:	$(OLIBVISUAL) ${OSRCS} ${LIBFT_LIB} ${MLX_LIB}	
 					@echo "${TXT_YELLOW}"
 					@echo "~~~~~~~ COMPILATION ~~~~~~~~~"
 					@echo "${TXT_GREEN}"
-					${CC} ${CFLAGS} ${OFLAGS} ${LDFLAGS} ${MLXFLAGS} $(OLIBVISUAL) ${OSRCS} -o $(NAME) -g
-#$(CC) $(OLIBVISUAL) ${OSRCS} ${INCLUDES} ${LDFLAGS} -L${LIBVISUAL_DIR}/minilibx-linux -lm -lmlx -lXext -lX11 -lm -lz -o $(NAME) -g
+					${CC} ${OLIBVISUAL} ${OSRCS} ${CFLAGS} ${LDFLAGS} ${MLXFLAGS} -o ${NAME} -g
+					#$(CC) $(OLIBVISUAL) ${OSRCS} ${INCLUDES} ${LDFLAGS} -L${LIBVISUAL_DIR}/minilibx-linux -lm -lmlx -lXext -lX11 -lz -o $(NAME) -g
 					@echo "${FANCY_RESET}"
 
 ${MLX_LIB}		:
