@@ -6,7 +6,7 @@
 /*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 21:27:15 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/07 23:37:31 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/18 15:14:26 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,17 @@ float	add_vect3(t_vect3 *v, int coord, int size)
 			res += v[i].z;
 	}
 	return (res);
+}
+
+int	is_null(t_vect3* vect)
+{
+	int	i;
+
+	i = 0;
+	i += (vect->x == 0.f);
+	i += (vect->y == 0.f);
+	i += (vect->z == 0.f);
+	if (i == 3)
+		return (1);
+	return (0);
 }

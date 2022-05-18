@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector3.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:48:47 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/17 19:06:15 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/18 15:11:59 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ t_vect3	norm_vect(t_vect3 v1);
 t_vect3	prod_vect(t_vect3 v1, t_vect3 v2);
 float	dot_product(t_vect3 v1, t_vect3 v2);
 float	add_vect3(t_vect3 *v, int coord, int size);
+int		is_null(t_vect3* vect);
 
 #endif
