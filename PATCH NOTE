@@ -9,9 +9,16 @@ Parsing a ajouter :
 
 - Gerer les tab ?
 
+- A tester les valeurs float type 0.1a45
+
 - Check nombre de variables sur la ligne, ok si incomplet ou range mais pas d erreur si un param de trop !
 A 0.2 255,255,255 1
 
+*******************************************************************
+PATCHED NOTE :
+- Added makefile full clean and multi OS Compilation
+- Executable ne se ferme pas si on clique sur la croix rouge (Ok avec ESC)
+- Segfault on print_error (if freed before malloc scene)
 - Segfault si :
 * CAS 1 :
 A 0.2 255,255,255
@@ -60,9 +67,3 @@ rdi = 0x0000000000000000  rsi = 0x0000608000000c20  rbp = 0x00007ff7b86c2470  rs
 r12 = 0x000000010adfa3a0  r13 = 0x00007ff7b86c2628  r14 = 0x0000000107845440  r15 = 0x000000010ade6010
 AddressSanitizer can not provide additional info.
 SUMMARY: AddressSanitizer: SEGV parser_utils.c:62 in read_vect
-
-*******************************************************************
-PATCHED NOTE :
-- Added makefile full clean and multi OS Compilation
-- Executable ne se ferme pas si on clique sur la croix rouge (Ok avec ESC)
-- Segfault on print_error (if freed before malloc scene)
