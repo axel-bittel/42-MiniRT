@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 16:07:34 by abittel           #+#    #+#             */
-/*   Updated: 2022/04/20 16:59:30 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/18 14:14:51 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,10 @@ char	*mini_gnl(int fd)
 				return (free(inter), res = malloc(1), res[0] = 0, res);
 			return (free(inter), res);
 		}
-		res = ft_strjoin(res, inter);
+		if (res)
+			res = ft_strjoin_free_s1(res, inter);
+		else
+			res = ft_strdup(inter);
 		nb_read = read(fd, inter, 1);
 	}
 	free(inter);
