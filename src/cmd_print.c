@@ -6,7 +6,7 @@
 /*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:58:20 by abittel           #+#    #+#             */
-/*   Updated: 2022/04/20 17:24:02 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/18 18:48:45 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	print_vect(t_vect3 v, char *prop)
 void	print_cylinder_prop(t_cylinder *cy)
 {
 	ft_putstr_fd("cy ", 1);
-	print_vect(cy->dir, "dir=");
 	print_vect(cy->pos, "pos=");
+	print_vect(cy->dir, "dir=");
 	ft_putstr_fd("rayon=", 1);
 	ft_putfloat_fd(cy->rayon, 1, 2);
 	ft_putstr_fd(" ", 1);
