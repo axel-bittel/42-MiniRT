@@ -1,19 +1,18 @@
 Bugs releves a corriger :
 - valeurs Color a print en entier et float (lors de list)
-- add sp : ajoute bien un  sp pos=(0,0,0) rayon=0 color=(0,0,0)
-mais il remplis tout l'ecran en bleu
 
 Parsing a ajouter :
 - faire le parsing des cmd CHANGE
 
 *******************************************************************
 PATCHED NOTE :
+- add sp : ajoute bien un  sp pos=(0,0,0) rayon=0 color=(0,0,0)
+mais il remplis tout l'ecran en bleu
 - Parsing sur les ADD commands a l'ecran :
 Gestion du nombre d arguments
 Gestion des doublons dans les arguments
 Gestion des arguments non valides
 Gestion des valeurs limites
-
 - A tester les valeurs float type 0.1a45
 - Check nombre de variables sur la ligne, ok si incomplet ou range mais pas d erreur si un param de trop !
 - Gerer les tab ?
