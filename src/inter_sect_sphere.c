@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inter_sect_sphere.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 01:05:35 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/19 11:11:02 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/19 21:10:32 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	is_intersection_sphere(t_ray dir, t_sphere s, t_vect3 *inter, t_vect3 *norm)
 	b = 2.f * dot_product(dir.dir, diff_vects(dir.pos, s.pos));
 	c = norm_square(diff_vects(dir.pos, s.pos)) - s.rayon * s.rayon;
 	delta = b * b - 4.f * c;
-	if (delta < 0.f)
+	if (delta < 0.f || s.rayon == 0.f)
 		return (0);
 	r1 = (-b - sqrtf(delta)) / (2.f);
 	r2 = (-b + sqrtf(delta)) / (2.f);

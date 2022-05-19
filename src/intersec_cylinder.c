@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   intersec_cylinder.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 18:02:43 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/19 11:12:10 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/19 21:41:21 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ t_cylinder c, int up)
 	inter_norm = norm_vect(mult_scal(norm_vect(c.dir), up));
 	plan_point = add_vects(mult_scal(mult_scal(norm_vect(c.dir), c.hauteur / \
 2.f), up), c.pos);
-	if (fabsf(dot_product(dir.dir, inter_norm)) > 0.00000001f && \
-dot_product(dir.dir, inter_norm) < 0)
+	if (fabsf(dot_product(dir.dir, inter_norm)) > 0.00000001f)
 	{
 		intersec = dot_product(diff_vects(plan_point, dir.pos), inter_norm) / \
 dot_product(dir.dir, inter_norm);
@@ -93,8 +92,17 @@ new_dir.pos), (t_two > 0.f));
 void	get_norm_cylinder(int is_disque, t_cylinder c, \
 t_vect3 *inter, t_vect3 *norm)
 {
-	if (is_disque)
-		*norm = mult_scal(c.dir, is_disque);
+	int	is_disque_val;
+
+	is_disque_val = 0;
+	if (is_disque & 8)
+		is_disque_val = 1;
+	if (is_disque & 16)
+		is_disque_val = -1;
+	if (is_disque & 32)
+		is_disque_val *= -1;
+	if (is_disque_val)
+		*norm = mult_scal(c.dir, is_disque_val);
 	else
 		*norm = norm_vect(diff_vects(diff_vects(*inter, c.pos), mult_scal(\
 norm_vect(c.dir), dot_product(diff_vects(*inter, c.pos), norm_vect(c.dir)))));
@@ -106,10 +114,8 @@ t_vect3 *inter, t_vect3 *norm)
 	float	inter_body;
 	float	inter_d_up;
 	float	inter_d_down;
-	int		is_disque;
 	int		is_int;
 
-	is_disque = 0;
 	is_int = is_int_bd_cy(new_dir, c, &inter_body) + is_int_cy_d(new_dir, \
 &inter_d_up, c, 1) * 2 + is_int_cy_d(new_dir, &inter_d_down, c, 0) * 4;
 	if (!(is_int & 1) + !(is_int & 2) + !(is_int & 4) == 3 || is_null(&c.dir))
@@ -119,13 +125,15 @@ t_vect3 *inter, t_vect3 *norm)
 	(!(is_int & 2) || inter_d_down < inter_d_up))
 	{
 		*inter = add_vects(mult_scal(new_dir.dir, inter_d_down), new_dir.pos);
-		is_disque = -1;
+		is_int += 16;
 	}
 	if ((is_int & 2) && (inter_d_up < inter_body || !(is_int & 1)) && \
 	(!(is_int & 4) || inter_d_up < inter_d_down))
 	{
 		*inter = add_vects(mult_scal(new_dir.dir, inter_d_up), new_dir.pos);
-		is_disque = 1;
+		is_int += 8;
 	}
-	return (get_norm_cylinder(is_disque, c, inter, norm), 1);
+	if (dot_product(new_dir.dir, mult_scal(c.dir, -1)) > 0)
+		is_int += 32;
+	return (get_norm_cylinder(is_int, c, inter, norm), 1);
 }
