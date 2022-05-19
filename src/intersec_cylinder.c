@@ -6,7 +6,7 @@
 /*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 18:02:43 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/19 21:41:21 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/19 21:45:43 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ t_vect3 *inter, t_vect3 *norm)
 		*inter = add_vects(mult_scal(new_dir.dir, inter_d_up), new_dir.pos);
 		is_int += 8;
 	}
-	if (dot_product(new_dir.dir, mult_scal(c.dir, -1)) > 0)
+	if (dot_product(new_dir.dir, mult_scal(c.dir, 1 + (is_int & 16) * -2)) > 0)
 		is_int += 32;
 	return (get_norm_cylinder(is_int, c, inter, norm), 1);
 }
