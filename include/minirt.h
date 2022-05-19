@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:28:29 by rahmed            #+#    #+#             */
-/*   Updated: 2022/05/19 17:24:56 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/19 21:37:17 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # include "obj.h"
 # include "cmd_input.h"
 # include "cmd.h"
+# include "cmd_parse.h"
 # include "parser.h"
 
 # define TRUE 1
@@ -52,7 +53,8 @@ enum	e_errors
 	ERR_CMD_DUP_ARG,
 	ERR_CMD_NO_OBJ,
 	ERR_CMD_NO_DEL,
-	ERR_VECTOR
+	ERR_VECTOR,
+	ERR_OUT_OF_BOUNDS
 };
 
 #endif

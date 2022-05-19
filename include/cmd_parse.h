@@ -1,41 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_ptr.c                                      :+:      :+:    :+:   */
+/*   cmd_parse.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/18 16:39:44 by rahmed            #+#    #+#             */
-/*   Updated: 2022/05/19 21:17:54 by rahmed           ###   ########.fr       */
+/*   Created: 2022/04/08 12:04:12 by abittel           #+#    #+#             */
+/*   Updated: 2022/05/19 21:36:41 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef CMD_PARSE_H
+# define CMD_PARSE_H
 
-char	*ft_free_ptr(char *ptr)
-{
-	if (ptr != NULL)
-	{
-		free(ptr);
-		ptr = NULL;
-	}
-	return (ptr);
-}
+int		check_cmd(t_datas *data, char **cmd_splt, int type_cmd);
+int		check_cmd_add_args(char **cmd_splt);
+int		check_cmd_add_args_names(char **cmd_splt);
+int		is_valid_arg(char *cmd_splt, char **names);
+int		is_valid_arg_value(char *arg, char *name);
+int		check_cmd_change_args(char **cmd_splt); // todo
+int		print_cmd_error(size_t err);
 
-void	ft_free_tab(char **tab)
-{
-	int		i;
-
-	i = 0;
-	if (tab != NULL)
-	{
-		while (tab[i] != NULL)
-		{
-			ft_free_ptr(tab[i]);
-			i++;
-		}
-		if (tab != NULL)
-			free(tab);
-		tab = NULL;
-	}
-}
+#endif

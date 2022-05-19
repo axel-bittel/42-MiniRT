@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 12:04:58 by rahmed            #+#    #+#             */
-/*   Updated: 2022/05/18 14:36:39 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/19 21:16:10 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	**ft_wordalloc(char *str, char *charset)
 	w = 0;
 	i = 0;
 	j = 0;
-	tabst = malloc(sizeof(char *) * ft_wordcount(str, charset) + 1);
+	tabst = ft_calloc(ft_wordcount(str, charset) + 2, sizeof(char *));
 	if (!tabst)
 		return (NULL);
 	while (str[i] && str[j])
@@ -75,7 +75,7 @@ char	**ft_wordalloc(char *str, char *charset)
 		j = i;
 		while (!is_sep(str[j], charset) && str[j])
 			j++;
-		tabst[w] = malloc(sizeof(char) * (j - i) + 1);
+		tabst[w] = ft_calloc((j - i) + 1, sizeof(char));
 		w++;
 	}
 	tabst[w] = NULL;
