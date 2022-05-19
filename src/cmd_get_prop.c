@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:55:12 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/19 11:09:24 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/19 17:30:39 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	get_vect(char *str, t_vect3 *res)
 				break ;
 	if (coord != 3)
 	{
-		ft_putstr_fd("ERROR VECT\n", 2);
+		print_cmd_error(ERR_VECTOR);
 		return (0);
 	}
 	else

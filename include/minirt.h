@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:28:29 by rahmed            #+#    #+#             */
-/*   Updated: 2022/05/19 11:18:38 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/19 17:24:56 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,10 @@ enum	e_errors
 	ERR_FILE_CONTENT,
 	ERR_CMD,
 	ERR_CMD_ARG,
+	ERR_CMD_DUP_ARG,
 	ERR_CMD_NO_OBJ,
-	ERR_CMD_NO_DEL
+	ERR_CMD_NO_DEL,
+	ERR_VECTOR
 };
 
 #endif

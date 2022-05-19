@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 12:04:12 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/19 11:03:04 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/19 17:42:38 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,11 @@ void	change_obj_prop_sphere(t_sphere *sp, char **cmd);
 t_vect3	read_vect(char *v, t_datas *data);
 void	print_error(t_datas *data, size_t err);
 int		close_win(t_datas *data);
-int		print_cmd_error(size_t err);
 int		check_cmd(t_datas *data, char **cmd_splt, int type_cmd);
+int		check_cmd_add_args(char **cmd_splt);
+int		check_cmd_add_args_names(char **cmd_splt);
+int		is_valid_arg(char *cmd_splt, char **names);
+int		check_cmd_change_args(char **cmd_splt); // todo
+int		print_cmd_error(size_t err);
 
 #endif

@@ -58,6 +58,9 @@ int				is_sep(char a, char *sep);
 int				ft_wordcount(char *str, char *charset);
 char			**ft_wordalloc(char *str, char *charset);
 char			**ft_split_charset(char *str, char *charset);
+char			**ft_add_line_tab(char **tab, char *line);
+char			**ft_copy_tab(char **tab);
+int				ft_tab_len(char **tab);
 
 typedef struct s_args_idx
 {
@@ -65,11 +68,13 @@ typedef struct s_args_idx
 	int	j;
 	int	k;
 }	t_args_idx;
+
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }				t_list;
+
 void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstadd_front(t_list **lst, t_list *new);
 void			ft_lstclear(t_list **lst, void (*del)(void *));

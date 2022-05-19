@@ -1,5 +1,7 @@
 Bugs releves a corriger :
 - valeurs Color a print en entier et float (lors de list)
+- add sp : ajoute bien un  sp pos=(0,0,0) rayon=0 color=(0,0,0)
+mais il remplis tout l'ecran en bleu
 
 Parsing a ajouter :
 - Tester les cas max / min et les int/floats
@@ -8,6 +10,11 @@ Parsing a ajouter :
 
 *******************************************************************
 PATCHED NOTE :
+- Parsing sur les commandes a l'ecran :
+Gestion du nombre d arguments
+Gestion des doublons dans les arguments
+Gestion des arguments non valides
+
 - A tester les valeurs float type 0.1a45
 - Check nombre de variables sur la ligne, ok si incomplet ou range mais pas d erreur si un param de trop !
 - Gerer les tab ?
