@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 21:30:32 by rahmed            #+#    #+#             */
-/*   Updated: 2022/05/19 21:35:24 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/19 21:55:23 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	check_cmd(t_datas *data, char **cmd_splt, int type_cmd)
 			return (ft_free_tab(cmd_splt), 0);
 	}
 	if (type_cmd == CHANGE_CMD) // && !check_cmd_change_args(cmd_splt)) // todo
-		exec_change_cmd(data, cmd_splt);
+		return (exec_change_cmd(data, cmd_splt), ft_free_tab(cmd_splt), 2);
 	return (0);
 }
 
