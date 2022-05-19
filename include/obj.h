@@ -6,21 +6,12 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:59:23 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 14:09:56 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/19 11:03:07 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OBJ_H
 # define OBJ_H
-# include "vector3.h"
-# include "mlx_visual.h"
-
-# ifdef MACOS
-#  define VECTOR3_SIZE 0
-# endif
-# ifdef LINUX
-#  define VECTOR3_SIZE 255
-# endif
 
 # define TYPE_SPHERE 1
 # define TYPE_PLANE 2
@@ -117,6 +108,10 @@ typedef struct s_res
 int		is_intersection(t_ray dir, t_obj o, t_vect3 *inter, t_vect3 *norm);
 int		is_intersection_cylinder(t_ray dir, t_cylinder c, \
 t_vect3 *inter, t_vect3 *norm);
+int		is_intersection_sphere(t_ray dir, t_sphere s, t_vect3 *inter, \
+t_vect3 *norm);
+int		is_intersection_plane(t_ray dir, t_plane p, t_vect3 *inter, \
+t_vect3 *norm);
 int		press_key(int keycode, t_datas *data);
 int		rgb_to_hex(int r, int g, int b, int a);
 float	minf(float f1, float f2);

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_obj_tab_manip.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:57:09 by abittel           #+#    #+#             */
-/*   Updated: 2022/04/20 17:23:26 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/19 11:09:52 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cmd.h"
+#include "minirt.h"
 
 t_obj	**add_tab_obj(t_obj **tab, t_obj *new)
 {

@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_input.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 21:40:47 by abittel           #+#    #+#             */
-/*   Updated: 2022/04/26 10:38:56 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/19 11:09:31 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "obj.h"
-#include <mlx.h>
-#include "cmd_input.h"
+#include "minirt.h"
 
 int	map_key_one(int keycode)
 {

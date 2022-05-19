@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   inter_sect_sphere.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 01:05:35 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 13:13:41 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/19 11:11:02 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector3.h"
-#include <math.h>
-#include <limits.h>
-#include "obj.h"
+#include "minirt.h"
 
 int	is_intersection_sphere(t_ray dir, t_sphere s, t_vect3 *inter, t_vect3 *norm)
 {

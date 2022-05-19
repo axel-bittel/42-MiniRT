@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   intersec_cylinder.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 18:02:43 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 15:12:17 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/19 11:12:10 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector3.h"
-#include <math.h>
-#include <limits.h>
-#include "obj.h"
+#include "minirt.h"
 
 int	is_int_cy_d(t_ray dir, float *inter, \
 t_cylinder c, int up)

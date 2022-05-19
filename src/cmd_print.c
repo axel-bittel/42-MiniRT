@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:58:20 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 18:48:45 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/19 11:10:06 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cmd.h"
+#include "minirt.h"
 
 void	print_vect(t_vect3 v, char *prop)
 {

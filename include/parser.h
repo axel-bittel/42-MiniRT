@@ -6,27 +6,12 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 11:20:08 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 18:34:06 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/19 11:03:07 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
-# include "obj.h"
-# include <stdio.h>
-
-# define TRUE 1
-# define FALSE 0
-
-enum	e_errors
-{
-	ERR_ARGS = 1,
-	ERR_FILENAME_FORMAT,
-	ERR_OPEN_FILE,
-	ERR_MALLOC,
-	ERR_DATA,
-	ERR_FILE_CONTENT
-};
 
 int		read_line(char *line, t_datas *data);
 int		parse_file(char *file, t_datas *data);

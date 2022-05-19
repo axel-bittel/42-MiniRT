@@ -6,13 +6,11 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 12:19:53 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/16 19:01:56 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/19 11:09:40 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "obj.h"
-#include <unistd.h>
-#include <stdlib.h>
+#include "minirt.h"
 
 t_light	**add_tab_light(t_light **tab, t_light *new)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_create_obj.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:55:55 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 14:25:21 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/19 11:09:17 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cmd.h"
+#include "minirt.h"
 
 void	*create_new_plane(char **str)
 {

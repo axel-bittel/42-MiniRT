@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_get_prop.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:55:12 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 14:32:42 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/19 11:09:24 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cmd.h"
+#include "minirt.h"
 
 int	get_vect_cond(char *str, t_vect3 *res, int *coord, int *i)
 {

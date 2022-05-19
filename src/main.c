@@ -6,20 +6,11 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 13:08:35 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 16:10:18 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/19 11:12:14 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
-#include <stdlib.h>
-#include "mlx_visual.h"
-#include "vector3.h"
-#include "obj.h"
-#include "cmd.h"
-#include "parser.h"
-#include <math.h>
-#include <stdio.h>
-#include "cmd_input.h"
+#include "minirt.h"
 
 t_datas	*init(void)
 {

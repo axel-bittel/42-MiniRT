@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   vector3_bis.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 21:27:15 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 15:14:26 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/19 11:19:00 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "obj.h"
+#include "minirt.h"
 
 t_vect3	prod_vect(t_vect3 v1, t_vect3 v2)
 {

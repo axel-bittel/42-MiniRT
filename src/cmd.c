@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cmd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 18:18:55 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 15:19:18 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/19 11:10:30 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cmd.h"
+#include "minirt.h"
 
 int	is_cmd_exist(char *str)
 {
@@ -31,6 +31,7 @@ int	exec_add_cmd(t_datas *datas, char **str)
 {
 	t_obj	*new_obj;
 
+	printf("exec_add_cmd - str[1] = %s\n", str[1]);//!test
 	new_obj = malloc(sizeof(t_obj));
 	if (!ft_strncmp(str[1], "sp", 3))
 	{
@@ -57,6 +58,7 @@ int	exec_list_cmd(t_datas *data)
 	int	i;
 
 	i = -1;
+	printf("exec_list_cmd\n");//!test
 	print_lights_prop(data);
 	while (data->scene->objs[++i])
 	{
@@ -104,12 +106,13 @@ int	exec_cmd(t_datas *data)
 	int		inter;
 
 	cmd_splt = ft_split(data->cmd, ' ');
+	printf("data->cmd  : %s / cmd_splt[1] = %s \n", data->cmd, cmd_splt[1]); // !test
 	if (data->cmd && cmd_splt[1])
 		inter = ft_atoi(cmd_splt[1]);
 	if (!cmd_splt[0] || !is_cmd_exist(cmd_splt[0]))
-		return (ft_free_tab(cmd_splt), ft_putstr_fd("error\n", 1), 0);
+		return (ft_free_tab(cmd_splt), print_cmd_error(ERR_CMD));
 	if (is_cmd_exist(cmd_splt[0]) == EXIT_CMD)
-		return (ft_free_tab(cmd_splt), -1);
+		return (check_cmd(data, cmd_splt, EXIT_CMD));
 	if (is_cmd_exist(cmd_splt[0]) == ADD_CMD && cmd_splt[1])
 		exec_add_cmd(data, cmd_splt);
 	if (is_cmd_exist(cmd_splt[0]) == LIST_CMD)
@@ -117,12 +120,40 @@ int	exec_cmd(t_datas *data)
 	if (is_cmd_exist(cmd_splt[0]) == DELETE_CMD)
 	{
 		if (!cmd_splt[1] || !ft_isdigit(cmd_splt[1][0]))
-			return (ft_free_tab(cmd_splt), ft_putstr_fd("NO OBJ SELECTED\n", 1), 0);
+			return (ft_free_tab(cmd_splt), print_cmd_error(ERR_CMD_NO_OBJ));
 		if (inter < 3)
-			return (ft_free_tab(cmd_splt), ft_putstr_fd("CAN'T DELETE THIS\n", 1), 0);
+			return (ft_free_tab(cmd_splt), print_cmd_error(ERR_CMD_NO_DEL));
 		data->scene->objs = delete_tab_obj(data->scene->objs, inter - 3);
 	}
 	if (is_cmd_exist(cmd_splt[0]) == CHANGE_CMD && cmd_splt[1])
 		exec_change_cmd(data, cmd_splt);
 	return (ft_free_tab(cmd_splt), 2);
+}
+
+int	check_cmd(t_datas *data, char **cmd_splt, int type_cmd)
+{
+	(void)data;
+	(void)cmd_splt;
+	(void)type_cmd;
+	if (type_cmd == EXIT_CMD && cmd_splt[1])
+		return (ft_free_tab(cmd_splt), print_cmd_error(ERR_CMD_ARG), 0);
+	else if (type_cmd == EXIT_CMD)
+		return (ft_free_tab(cmd_splt), -1);
+
+
+	return (0);
+}
+
+int	print_cmd_error(size_t err)
+{
+	ft_putstr_fd("\033[1;31mError\n\033[0m", STDERR_FILENO);
+	if (err == ERR_CMD)
+		ft_putstr_fd("\033[1;31mCMD : Wrong command\n\033[0m", STDERR_FILENO);
+	if (err == ERR_CMD_ARG)
+		ft_putstr_fd("\033[1;31mCMD : Wrong argument\n\033[0m", STDERR_FILENO);
+	if (err == ERR_CMD_NO_OBJ)
+		ft_putstr_fd("\033[1;31mCMD : No object selected\n\033[0m", STDERR_FILENO);
+	if (err == ERR_CMD_NO_DEL)
+		ft_putstr_fd("\033[1;31mCMD : Can't delete this\n\033[0m", STDERR_FILENO);
+	return (0);
 }

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   math_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 21:22:23 by abittel           #+#    #+#             */
-/*   Updated: 2022/04/22 21:35:28 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/19 11:12:23 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "obj.h"
-#include "cmd.h"
+#include "minirt.h"
 
 int	rgb_to_hex(int r, int g, int b, int a)
 {

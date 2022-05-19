@@ -183,7 +183,7 @@ flush		:	fclean
 				${RM} ${NAME} ${NAMEB}
 				${RM} .DS_STORE
 				${RM} *.out
-				${RM} *.a ${LIBFT_LIB} ${MLX_LIB}
+				${RM} *.a ${LIBFT_DIR}/*.a ${MLX_DIR}/*.a
 				${RM} ${LIBVISUAL_DIR}/minilibx/*.o ${LIBVISUAL_DIR}/minilibx/*.a
 				${RM} ${LIBVISUAL_DIR}/minilibx-linux/*.o ${LIBVISUAL_DIR}/minilibx-linux/*.a
 				${RM} ${SRC_DIR}/*.o ${LIBFT_DIR}/*.o ${LIBVISUAL_DIR}/*.o

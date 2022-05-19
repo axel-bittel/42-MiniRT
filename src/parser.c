@@ -6,18 +6,11 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 22:37:08 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 18:33:55 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/19 11:17:59 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cmd.h"
-#include "obj.h"
-#include <fcntl.h>
-#include <unistd.h>
-#include <math.h>
-#include "libft.h"
-#include "parser.h"
-#include <stdio.h>
+#include "minirt.h"
 
 int	read_line(char *line, t_datas *data)
 {

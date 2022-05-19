@@ -3,20 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 18:03:32 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 18:45:51 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/19 12:02:43 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cmd.h"
-#include "obj.h"
-#include <fcntl.h>
-#include <unistd.h>
-#include <math.h>
-#include "libft.h"
-#include "parser.h"
+#include "minirt.h"
 
 void	print_error(t_datas *data, size_t err)
 {
@@ -155,8 +149,8 @@ t_vect3	read_vect(char *v, t_datas *data)
 			res.x = ft_atof(v + i) * (pos == 1) + res.x * !(pos == 1);
 			res.y = ft_atof(v + i) * (pos == 2) + res.y * !(pos == 2);
 			res.z = ft_atof(v + i) * (pos == 3) + res.z * !(pos == 3);
-			while (v[i] && v[i + 1] && (ft_isdigit(v[i]) || v[i] \
-	== '-' || v[i] == '.'))
+			while (v[i] && v[i + 1] && (ft_isdigit(v[i]) || \
+			v[i] == '-' || v[i] == '.'))
 				i++;
 			pos++;
 		}

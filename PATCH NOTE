@@ -6,30 +6,6 @@ Parsing a ajouter :
 
 - Check les valeurs entrees en commande manuelle
 
-- Si on envoie que 2 args a L il plante
-./MiniRT map/bad_content2.rt
-AddressSanitizer:DEADLYSIGNAL
-=================================================================
-==70046==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x00010129d98e bp 0x7ff7bec6b5f0 sp 0x7ff7bec6b5a0 T0)
-==70046==The signal is caused by a READ memory access.
-==70046==Hint: address points to the zero page.
-    #0 0x10129d98e in read_vect parser_utils.c:76
-    #1 0x10129c8c8 in parser_add_l parser_add_obj.c:25
-    #2 0x10129a8d8 in line_checker parser.c:54
-    #3 0x10129a744 in read_line parser.c:35
-    #4 0x10129a9ff in parse_file parser.c:79
-    #5 0x1012974ea in main main.c:109
-    #6 0x10f59751d in start+0x1cd (dyld:x86_64+0x551d)
-
-==70046==Register values:
-rax = 0x0000000000000000  rbx = 0x00000001012ce060  rcx = 0x0000000000000000  rdx = 0x0000000000000003
-rdi = 0x0000000000000000  rsi = 0x0000608000000c20  rbp = 0x00007ff7bec6b5f0  rsp = 0x00007ff7bec6b5a0
- r8 = 0x0000000101812eb8   r9 = 0x00000000000143eb  r10 = 0x0000000000000007  r11 = 0x0000000000000000
-r12 = 0x000000010f6123a0  r13 = 0x00007ff7bec6b808  r14 = 0x00000001012974a0  r15 = 0x000000010f5fe010
-AddressSanitizer can not provide additional info.
-SUMMARY: AddressSanitizer: SEGV parser_utils.c:76 in read_vect
-==70046==ABORTING
-
 *******************************************************************
 PATCHED NOTE :
 - A tester les valeurs float type 0.1a45
@@ -47,18 +23,6 @@ sp 0,0,200 20 255,0,0
 pl 0.0,0.0,400.0 0.0,1.0,0.0 0,0,225
 cy 30.0,0.0,200.6 -1.0,1.0,0.0 14.2 21.42		10,0,255
 
-AddressSanitizer:DEADLYSIGNAL
-=================================================================
-==61839==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x00010aad03db bp 0x7ff7b543a410 sp 0x7ff7b543a3f0 T0)
-==61839==The signal is caused by a READ memory access.
-==61839==Hint: address points to the zero page.
-    #0 0x10aad03db in ft_atof cmd_utils.c:28
-    #1 0x10aad340c in parser_add_cy parser_add_obj.c:102
-    #2 0x10aad072d in read_line parser.c:34
-    #3 0x10aad089f in parse_file parser.c:61
-    #4 0x10aacd4ab in main main.c:118
-    #5 0x10daad51d in start+0x1cd (dyld:x86_64+0x551d)
-
 * Cas 2 :
 A 0.2		255,255,255
 C 0,0,0 0,0,1 70
@@ -67,22 +31,5 @@ sp 0,0,200 20 255,0,0
 pl 0.0,0.0,400.0 0.0,1.0,0.0 0,0,225
 cy 30.0,0.0,200.6 -1.0,1.0,0.0 14.2 21.42 10,0,255
 
-AddressSanitizer:DEADLYSIGNAL
-=================================================================
-==65491==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000000 (pc 0x00010784b6ee bp 0x7ff7b86c2470 sp 0x7ff7b86c2420 T0)
-==65491==The signal is caused by a READ memory access.
-==65491==Hint: address points to the zero page.
-    #0 0x10784b6ee in read_vect parser_utils.c:62
-    #1 0x10784bac2 in parser_add_a parser_utils.c:100
-    #2 0x107848760 in read_line parser.c:36
-    #3 0x10784889f in parse_file parser.c:61
-    #4 0x1078454ab in main main.c:118
-    #5 0x10ad7f51d in start+0x1cd (dyld:x86_64+0x551d)
-
-==65491==Register values:
-rax = 0x0000000000000000  rbx = 0x0000000107877060  rcx = 0x0000000000000000  rdx = 0x0000000000000008
-rdi = 0x0000000000000000  rsi = 0x0000608000000c20  rbp = 0x00007ff7b86c2470  rsp = 0x00007ff7b86c2420
- r8 = 0x0000200000000000   r9 = 0x0000000000000000  r10 = 0xffffffffffffffff  r11 = 0x00000fffffffffff
-r12 = 0x000000010adfa3a0  r13 = 0x00007ff7b86c2628  r14 = 0x0000000107845440  r15 = 0x000000010ade6010
-AddressSanitizer can not provide additional info.
-SUMMARY: AddressSanitizer: SEGV parser_utils.c:62 in read_vect
+* Cas 3 - Si on envoie que 2 args a L il plante
+./MiniRT map/bad_content2.rt

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   vector3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:48:40 by abittel           #+#    #+#             */
-/*   Updated: 2022/04/22 21:32:49 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/19 11:19:22 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
-#include "obj.h"
+#include "minirt.h"
 
 t_vect3	add_vects(t_vect3 v1, t_vect3 v2)
 {

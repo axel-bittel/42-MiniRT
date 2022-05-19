@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   compute_screen.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 21:59:49 by abittel           #+#    #+#             */
-/*   Updated: 2022/04/22 22:37:04 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/19 11:10:51 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "obj.h"
-#include <math.h>
-#include "libft.h"
+#include "minirt.h"
 
 void	get_insity(t_datas *data, int k, t_res *res)
 {

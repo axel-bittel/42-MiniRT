@@ -3,18 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   cmd.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 12:04:12 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 12:41:39 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/19 11:03:04 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CMD_H
 # define CMD_H
-# include "libft.h"
-# include "obj.h"
-#include <math.h>
 
 # define ADD_CMD	1
 # define LIST_CMD	2
@@ -47,5 +44,7 @@ void	change_obj_prop_sphere(t_sphere *sp, char **cmd);
 t_vect3	read_vect(char *v, t_datas *data);
 void	print_error(t_datas *data, size_t err);
 int		close_win(t_datas *data);
+int		print_cmd_error(size_t err);
+int		check_cmd(t_datas *data, char **cmd_splt, int type_cmd);
 
 #endif

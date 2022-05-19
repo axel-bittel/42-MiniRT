@@ -6,13 +6,11 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 16:07:34 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 16:29:38 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/19 11:10:14 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cmd.h"
-#include <math.h>
-#include <unistd.h>
+#include "minirt.h"
 
 float	ft_atof(char *s)
 {

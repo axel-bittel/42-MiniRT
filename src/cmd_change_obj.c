@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_change_obj.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:59:03 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/18 15:04:27 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/19 11:08:53 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cmd.h"
+#include "minirt.h"
 
 void	change_obj_prop_sphere(t_sphere *sp, char **cmd)
 {
