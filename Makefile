@@ -65,7 +65,8 @@ SRCS			= 	${SRC_DIR}/main.c \
 					${SRC_DIR}/cmd_input.c \
 					${SRC_DIR}/math_utils.c \
 					${SRC_DIR}/vector3_bis.c \
-					${SRC_DIR}/compute_screen.c
+					${SRC_DIR}/compute_screen.c \
+					${SRC_DIR}/cmd_parse.c
 
 BSRCS			=	${SRC_DIR}/main.c \
 					${SRC_DIR}/cmd.c \
@@ -85,7 +86,8 @@ BSRCS			=	${SRC_DIR}/main.c \
 					${SRC_DIR}/math_utils.c \
 					${SRC_DIR}/vector3_bis.c \
 					${SRC_DIR}/compute_screen_bonus.c \
-					${SRC_DIR}/cmd_light_tab_manip_bonus.c
+					${SRC_DIR}/cmd_light_tab_manip_bonus.c \
+					${SRC_DIR}/cmd_parse.c
 
 INCLUDES		=	-I./${LIBFT_DIR} \
 					-I./${INC_DIR} \

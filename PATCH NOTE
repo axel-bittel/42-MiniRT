@@ -4,16 +4,15 @@ Bugs releves a corriger :
 mais il remplis tout l'ecran en bleu
 
 Parsing a ajouter :
-- Tester les cas max / min et les int/floats
-
-- Check les valeurs entrees en commande manuelle
+- faire le parsing des cmd CHANGE
 
 *******************************************************************
 PATCHED NOTE :
-- Parsing sur les commandes a l'ecran :
+- Parsing sur les ADD commands a l'ecran :
 Gestion du nombre d arguments
 Gestion des doublons dans les arguments
 Gestion des arguments non valides
+Gestion des valeurs limites
 
 - A tester les valeurs float type 0.1a45
 - Check nombre de variables sur la ligne, ok si incomplet ou range mais pas d erreur si un param de trop !
