@@ -6,16 +6,24 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 10:28:29 by rahmed            #+#    #+#             */
-/*   Updated: 2022/05/19 21:37:17 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/20 20:24:46 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
+# ifdef MACOS
+#  define VECTOR3_SIZE 0
+#  include <mlx.h>
+# endif
+# ifdef LINUX
+#  define VECTOR3_SIZE 255
+#  include "minilibx-linux/mlx.h"
+# endif
+
 # include <fcntl.h>
 # include <limits.h>
-# include <mlx.h>
 # include "mlx_visual.h"
 # include <math.h>
 # include <stdio.h>
@@ -32,13 +40,6 @@
 
 # define TRUE 1
 # define FALSE 0
-
-# ifdef MACOS
-#  define VECTOR3_SIZE 0
-# endif
-# ifdef LINUX
-#  define VECTOR3_SIZE 255
-# endif
 
 enum	e_errors
 {

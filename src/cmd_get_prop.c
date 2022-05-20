@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:55:12 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/19 17:30:39 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/20 20:01:26 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	get_prop(char **str, t_vect3 *v, char *prop)
 	t_vect3	inter;
 
 	i = -1;
-	*v = (t_vect3){0.f,0.f,0.f};
+	*v = (t_vect3){0.f, 0.f, 0.f};
 	while (str[++i])
 	{
 		if (!ft_strncmp(str[i], prop, ft_strlen(prop)))

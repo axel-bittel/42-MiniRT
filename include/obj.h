@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:59:23 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/20 17:57:30 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/20 20:14:44 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,12 +111,15 @@ int		is_intersection_sphere(t_ray dir, t_sphere s, t_vect3 *inter, \
 t_vect3 *norm);
 int		is_intersection_plane(t_ray dir, t_plane p, t_vect3 *inter, \
 t_vect3 *norm);
-int		press_key(int keycode, t_datas *data);
 int		rgb_to_hex(int r, int g, int b, int a);
 float	minf(float f1, float f2);
 float	maxf(float f1, float f2);
 int		lunch_cmd(t_datas *data);
+t_datas	*init_mymlx(void);
 int		refresh_screen(t_datas *data);
+void	press_cmd(int keycode, t_datas *data, char *inter, t_subimg pos);
+int		press_key(int keycode, t_datas *data);
+int		close_win(t_datas *data);
 void	print_min_intersec(t_datas *data, t_ray inter, int i, int j);
 int		print_scene(t_datas *data);
 t_light	**add_tab_light(t_light **tab, t_light *new);

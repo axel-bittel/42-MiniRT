@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 21:27:15 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/19 11:19:00 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/20 20:03:14 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ float	add_vect3(t_vect3 *v, int coord, int size)
 	return (res);
 }
 
-int	is_null(t_vect3* vect)
+int	is_null(t_vect3 *vect)
 {
 	int	i;
 

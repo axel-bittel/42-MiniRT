@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:58:20 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/20 18:59:12 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/20 19:50:47 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,9 @@ void	print_cylinder_prop(t_cylinder *cy)
 	ft_putstr_fd("\033[1;36m\t|\033[0m", 1);
 	ft_putstr_fd("rayon=", 1);
 	ft_putfloat_fd(cy->rayon, 1, 2);
-	// ft_putstr_fd(" ", 1);
 	ft_putstr_fd("\033[1;36m\t|\033[0m", 1);
 	ft_putstr_fd("hauteur=", 1);
 	ft_putfloat_fd(cy->hauteur, 1, 2);
-	// ft_putstr_fd(" ", 1);
 }
 
 void	print_sphere_prop(t_sphere *cy)

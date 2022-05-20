@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 16:07:34 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/19 11:10:14 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/20 19:49:44 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,14 @@ char	*mini_gnl(int fd)
 	}
 	free(inter);
 	return (res);
+}
+
+float	deg_to_rad(float degrees)
+{
+	return (degrees * M_PI / 180);
+}
+
+float	rad_to_deg(float radians)
+{
+	return (radians * 180 / M_PI);
 }

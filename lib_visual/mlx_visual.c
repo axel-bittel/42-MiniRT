@@ -9,10 +9,8 @@
 /*   Updated: 2021/12/04 19:16:28 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <math.h>
-#include "mlx_visual.h"
-#include "mlx.h"
-//#include "minilibx-linux/mlx.h"
+
+#include "minirt.h"
 
 void	init_img(t_img *img, void *mlx, int x, int y)
 {

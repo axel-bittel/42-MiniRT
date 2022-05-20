@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 12:04:12 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/19 21:39:58 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/20 20:14:36 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,11 @@ void	change_obj_prop_plane(t_plane *sp, char **cmd);
 void	change_obj_prop_sphere(t_sphere *sp, char **cmd);
 t_vect3	read_vect(char *v, t_datas *data);
 void	print_error(t_datas *data, size_t err);
-int		close_win(t_datas *data);
 int		is_cmd_exist(char *str);
 int		exec_add_cmd(t_datas *datas, char **str);
 int		exec_list_cmd(t_datas *data);
 int		exec_change_cmd(t_datas *data, char **cmd);
+float	deg_to_rad(float degrees);
+float	rad_to_deg(float radians);
 
 #endif
