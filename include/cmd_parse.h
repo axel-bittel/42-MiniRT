@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 12:04:12 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/20 12:41:30 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/20 17:37:43 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,9 @@ int		check_cmd_add_args_names(char **cmd_splt);
 int		is_valid_arg(char *cmd_splt, char **names);
 int		is_valid_arg_value(char *arg, char *name);
 int		print_cmd_error(size_t err);
+
+float	deg_to_rad(float degrees);
+float	rad_to_deg(float radians);
+
 
 #endif

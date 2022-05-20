@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:59:03 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/19 11:08:53 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/20 17:38:45 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ data->scene->cam.dir, (t_vect3){1.f, 0.f, 0.f}));
 data->scene->cam_right));
 		}
 		if (get_fprop(cmd, &finter, "fov="))
-			data->fov = finter;
+			data->fov = deg_to_rad(finter);
 	}
 	else if (idx == -1 || idx == -2)
 		change_obj_light_l(data, idx, cmd);

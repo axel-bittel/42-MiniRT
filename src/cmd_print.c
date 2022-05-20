@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:58:20 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/19 11:10:06 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/20 17:43:14 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	print_lights_prop(t_datas *data)
 	ft_putstr_fd(" ", 1);
 	print_vect(data->scene->cam.dir, "dir=");
 	ft_putstr_fd(" FOV=", 1);
-	ft_putfloat_fd(data->fov, 1, 2);
+	ft_putfloat_fd(rad_to_deg(data->fov), 1, 2);
 	ft_putstr_fd("\n1 A ", 1);
 	ft_putstr_fd("ratio=", 1);
 	ft_putfloat_fd(data->scene->l_amb.ratio, 1, 2);

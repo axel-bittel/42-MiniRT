@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 21:30:32 by rahmed            #+#    #+#             */
-/*   Updated: 2022/05/20 14:55:14 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/20 17:37:50 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,4 +217,14 @@ int	print_cmd_error(size_t err)
 	if (err == ERR_OUT_OF_BOUNDS)
 		ft_putstr_fd("\033[1;31mCMD : Out of bounds\n\033[0m", STDERR_FILENO);
 	return (0);
+}
+
+float	deg_to_rad(float degrees)
+{
+	return (degrees * M_PI / 180);
+}
+
+float	rad_to_deg(float radians)
+{
+	return (radians * 180 / M_PI);
 }
