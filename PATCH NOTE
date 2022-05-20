@@ -1,15 +1,13 @@
-Bugs releves a corriger :
+PB releves a corriger :
+
 - valeurs Color a print en entier (lors de list) ?
-- FOV a afficher en degres faire rad*180/π
-D ailleurs si on fait change fov= il changera la valeur par une valeur en degres donc il passera de 1.2 a 90 degres apr exeple
 - change 0 pos=-1.4,2,2
 donne : 0 C pos=(-1.39,2.00,2.00)
 
-
-Parsing a ajouter :
-
 *******************************************************************
 PATCHED NOTE :
+- FOV a afficher en degres faire rad*180/π
+D ailleurs si on fait change fov= il changera la valeur par une valeur en degres donc il passera de 1.2 a 90 degres apr exeple
 - add sp : ajoute bien un  sp pos=(0,0,0) rayon=0 color=(0,0,0)
 mais il remplis tout l'ecran en bleu
 - Parsing des cmd CHANGE

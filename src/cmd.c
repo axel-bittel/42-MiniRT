@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 18:18:55 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/19 21:31:45 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/20 19:25:45 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,19 @@ int	exec_add_cmd(t_datas *datas, char **str)
 	{
 		new_obj->obj = create_new_sphere(str);
 		new_obj->type = TYPE_SPHERE;
+		ft_putstr_fd("\033[1;34m>>ADD sp\033[0m\n", 1);
 	}
 	if (!ft_strncmp(str[1], "pl", 3))
 	{
 		new_obj->obj = create_new_plane(str);
 		new_obj->type = TYPE_PLANE;
+		ft_putstr_fd("\033[1;34m>>ADD pl\033[0m\n", 1);
 	}
 	if (!ft_strncmp(str[1], "cy", 3))
 	{
 		new_obj->obj = create_new_cylinder(str);
 		new_obj->type = TYPE_CYLINDER;
+		ft_putstr_fd("\033[1;34m>>ADD cy\033[0m\n", 1);
 	}
 	get_prop(str, &new_obj->color, "color=");
 	datas->scene->objs = add_tab_obj(datas->scene->objs, new_obj);
@@ -81,6 +84,7 @@ int	exec_change_cmd(t_datas *data, char **cmd)
 
 	idx = ft_atoi(cmd[1]);
 	idx -= 3;
+	printf("\033[1;34m>>CHANGE OBJ \033[1;31m%d\033[0m\n", idx + 3);
 	if (idx >= -3 && idx < 0)
 	{
 		change_obj_light(data, idx, cmd);
@@ -120,6 +124,7 @@ int	exec_cmd(t_datas *data)
 		if (inter < 3)
 			return (ft_free_tab(cmd_splt), print_cmd_error(ERR_CMD_NO_DEL));
 		data->scene->objs = delete_tab_obj(data->scene->objs, inter - 3);
+		printf("\033[1;34m>>DELETE OBJ \033[1;31m%d\033[0m\n", inter);
 	}
 	return (ft_free_tab(cmd_splt), 2);
 }

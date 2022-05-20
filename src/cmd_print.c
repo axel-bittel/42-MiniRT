@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:58:20 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/20 18:00:54 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/20 18:59:12 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	print_vect(t_vect3 v, char *prop)
 {
+	ft_putstr_fd("\033[1;36m\t|\033[0m", 1);
 	ft_putstr_fd(prop, 1);
 	ft_putstr_fd("(", 1);
 	ft_putfloat_fd(v.x, 1, 2);
@@ -26,49 +27,59 @@ void	print_vect(t_vect3 v, char *prop)
 
 void	print_cylinder_prop(t_cylinder *cy)
 {
-	ft_putstr_fd("cy ", 1);
+	ft_putstr_fd("\033[1;36m\t|\033[0m", 1);
+	ft_putstr_fd("\033[1;32mcy\033[0m", 1);
 	print_vect(cy->pos, "pos=");
 	print_vect(cy->dir, "dir=");
+	ft_putstr_fd("\033[1;36m\t|\033[0m", 1);
 	ft_putstr_fd("rayon=", 1);
 	ft_putfloat_fd(cy->rayon, 1, 2);
-	ft_putstr_fd(" ", 1);
+	// ft_putstr_fd(" ", 1);
+	ft_putstr_fd("\033[1;36m\t|\033[0m", 1);
 	ft_putstr_fd("hauteur=", 1);
 	ft_putfloat_fd(cy->hauteur, 1, 2);
-	ft_putstr_fd(" ", 1);
+	// ft_putstr_fd(" ", 1);
 }
 
 void	print_sphere_prop(t_sphere *cy)
 {
-	ft_putstr_fd("sp ", 1);
+	ft_putstr_fd("\033[1;36m\t|\033[0m", 1);
+	ft_putstr_fd("\033[1;32msp\033[0m", 1);
 	print_vect(cy->pos, "pos=");
+	ft_putstr_fd("\033[1;36m\t|\033[0m", 1);
 	ft_putstr_fd("rayon=", 1);
 	ft_putfloat_fd(cy->rayon, 1, 2);
-	ft_putstr_fd(" ", 1);
+	ft_putstr_fd("\t", 1);
 }
 
 void	print_plane_prop(t_plane *cy)
 {
-	ft_putstr_fd("pl ", 1);
+	ft_putstr_fd("\033[1;36m\t|\033[0m", 1);
+	ft_putstr_fd("\033[1;32mpl\033[0m", 1);
 	print_vect(cy->pos, "pos=");
 	print_vect(cy->v1, "dir=");
 }
 
 void	print_lights_prop(t_datas *data)
 {
-	ft_putstr_fd("0 C ", 1);
+	ft_putstr_fd("\033[1;34m>>LIST :\n\033[0m", 1);
+	ft_putstr_fd("0\033[1;36m\t|\033[1;32mC\033[0m", 1);
 	print_vect(data->scene->cam.pos, "pos=");
-	ft_putstr_fd(" ", 1);
+	ft_putstr_fd("\t", 1);
 	print_vect(data->scene->cam.dir, "dir=");
-	ft_putstr_fd(" FOV=", 1);
+	ft_putstr_fd("\033[1;36m\t|\033[0m", 1);
+	ft_putstr_fd("FOV=", 1);
 	ft_putfloat_fd(rad_to_deg(data->fov), 1, 2);
-	ft_putstr_fd("\n1 A ", 1);
+	ft_putstr_fd("\n1\033[1;36m\t|\033[1;32mA\033[0m", 1);
+	ft_putstr_fd("\033[1;36m\t|\033[0m", 1);
 	ft_putstr_fd("ratio=", 1);
 	ft_putfloat_fd(data->scene->l_amb.ratio, 1, 2);
-	ft_putstr_fd(" ", 1);
+	ft_putstr_fd("\t", 1);
 	print_vect(data->scene->l_amb.color, "color=");
-	ft_putstr_fd("\n2 L ", 1);
+	ft_putstr_fd("\n2\033[1;36m\t|\033[1;32mL\033[0m", 1);
 	print_vect(data->scene->l.pos, "pos=");
-	ft_putstr_fd(" ratio=", 1);
+	ft_putstr_fd("\033[1;36m\t|\033[0m", 1);
+	ft_putstr_fd("ratio=", 1);
 	ft_putfloat_fd(data->scene->l.ratio, 1, 2);
 	ft_putstr_fd("\n", 1);
 }

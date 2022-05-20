@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 21:30:32 by rahmed            #+#    #+#             */
-/*   Updated: 2022/05/20 17:37:50 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/20 19:24:25 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,12 @@ int	check_cmd_change_args(t_datas *data, char **cmd_splt)
 	int	idx;
 	int	type;
 
+	type = 0;
 	idx = ft_atoi(cmd_splt[1]) - 3;
 	if (cmd_splt[1] != NULL && idx >= -3)
 	{
-		type = data->scene->objs[idx]->type;
+		if (idx >= 0)
+			type = data->scene->objs[idx]->type;
 		if ((cmd_splt[2] == NULL) || \
 		(((idx == -3 || idx == -1) && ft_tab_len(cmd_splt) > (3 + 2)) || \
 		(idx == -2 && ft_tab_len(cmd_splt) > (2 + 2)) || \
@@ -158,7 +160,6 @@ int	is_valid_arg(char *arg, char **names)
 	check = 0;
 	while (names[j])
 	{
-		printf("arg = %s / names[%d] = %s\n", arg, j, names[j]);//!Test
 		if (!ft_strncmp(arg, names[j], ft_strlen(names[j])))
 		{
 			if (!is_valid_arg_value(arg, names[j]))
