@@ -16,3 +16,22 @@ int	ft_isdigit(int c)
 		return (1 << 10);
 	return (0);
 }
+
+int	ft_str_isdigit(char *str)
+{
+	int	i;
+	int	dot;
+
+	i = 0;
+	dot = 0;
+	if ((str[i] != '-') && (str[i] != '+') && !ft_isdigit(str[i]))
+		return (0);
+	while (str[++i])
+	{
+		if (str[i] == '.')
+			dot++;
+		if ((!ft_isdigit(str[i]) && (str[i] != '.')) || dot > 1)
+			return (0);
+	}
+	return (1);
+}

@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 21:30:32 by rahmed            #+#    #+#             */
-/*   Updated: 2022/05/19 21:55:23 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/20 14:55:14 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,82 @@ int	check_cmd(t_datas *data, char **cmd_splt, int type_cmd)
 		else
 			return (ft_free_tab(cmd_splt), 0);
 	}
-	if (type_cmd == CHANGE_CMD) // && !check_cmd_change_args(cmd_splt)) // todo
-		return (exec_change_cmd(data, cmd_splt), ft_free_tab(cmd_splt), 2);
+	if (type_cmd == CHANGE_CMD)
+	{
+		if (!check_cmd_change_args(data, cmd_splt))
+			return (exec_change_cmd(data, cmd_splt), ft_free_tab(cmd_splt), 2);
+		else
+			return (ft_free_tab(cmd_splt), 0);
+	}
 	return (0);
+}
+
+int	check_cmd_change_args(t_datas *data, char **cmd_splt)
+{
+	int	idx;
+	int	type;
+
+	idx = ft_atoi(cmd_splt[1]) - 3;
+	if (cmd_splt[1] != NULL && idx >= -3)
+	{
+		type = data->scene->objs[idx]->type;
+		if ((cmd_splt[2] == NULL) || \
+		(((idx == -3 || idx == -1) && ft_tab_len(cmd_splt) > (3 + 2)) || \
+		(idx == -2 && ft_tab_len(cmd_splt) > (2 + 2)) || \
+		(idx >= 0 && type == TYPE_CYLINDER && ft_tab_len(cmd_splt) > (5 + 2)) \
+		|| (idx >= 0 && (type == TYPE_PLANE || type == TYPE_SPHERE) && \
+		ft_tab_len(cmd_splt) > (3 + 2))) || \
+		check_cmd_change_args_name(cmd_splt, type, idx))
+			return (print_cmd_error(ERR_CMD_ARG), 1);
+		if (ft_str_isdigit(cmd_splt[1]) && ft_atoi(cmd_splt[1]) >= 0 \
+		&& cmd_splt[2])
+			return (0);
+	}
+	return (print_cmd_error(ERR_CMD_NO_OBJ), 1);
+}
+
+int	check_cmd_change_args_name(char **cmd_splt, int type, int idx)
+{
+	int		i;
+	int		check;
+	int		old_check;
+	char	**names;
+
+	i = 1;
+	old_check = 0;
+	get_arg_change_names(&names, type, idx);
+	if (idx < -3)
+		return (1);
+	while (cmd_splt[++i])
+	{
+		check = is_valid_arg(cmd_splt[i], names);
+		if (!check)
+			return (ft_free_tab(names), 1);
+		if (check & old_check)
+			return (ft_free_tab(names), print_cmd_error(ERR_CMD_DUP_ARG), 1);
+		old_check |= check;
+	}
+	return (ft_free_tab(names), 0);
+}
+
+char	**get_arg_change_names(char ***names, int type, int idx)
+{
+	if (idx == -3)
+		*names = ft_split("pos= dir= fov=", ' ');
+	else if (idx == -2)
+		*names = ft_split("ratio= color=", ' ');
+	else if (idx == -1)
+		*names = ft_split("pos= ratio= color=", ' ');
+	else if (idx >= 0)
+	{
+		if (type == TYPE_CYLINDER)
+			*names = ft_split("pos= dir= rayon= hauteur= color=", ' ');
+		if (type == TYPE_PLANE)
+			*names = ft_split("pos= dir= color=", ' ');
+		if (type == TYPE_SPHERE)
+			*names = ft_split("pos= rayon= color=", ' ');
+	}
+	return (*names);
 }
 
 int	check_cmd_add_args(char **cmd_splt)
@@ -85,6 +158,7 @@ int	is_valid_arg(char *arg, char **names)
 	check = 0;
 	while (names[j])
 	{
+		printf("arg = %s / names[%d] = %s\n", arg, j, names[j]);//!Test
 		if (!ft_strncmp(arg, names[j], ft_strlen(names[j])))
 		{
 			if (!is_valid_arg_value(arg, names[j]))
@@ -106,23 +180,22 @@ int	is_valid_arg_value(char *arg, char *name)
 	param = ft_split_charset(arg, ",=");
 	while (param[++i])
 	{
-		// printf("NAME %s / is_valid_arg_value PARAM = %s\n", name, param[i]);//!test
 		if (((!ft_strncmp("dir=", name, ft_strlen(name))) && \
 		(ft_atof(param[i]) < -1 || ft_atof(param[i]) > 1)) \
 		|| ((!ft_strncmp("color=", name, ft_strlen(name))) && \
 		(ft_atof(param[i]) < 0 || ft_atof(param[i]) > 255)) \
+		|| ((!ft_strncmp("fov=", name, ft_strlen(name))) && \
+		(ft_atof(param[i]) < 0 || ft_atof(param[i]) > 180)) \
+		|| ((!ft_strncmp("ratio=", name, ft_strlen(name))) && \
+		(ft_atof(param[i]) < 0 || ft_atof(param[i]) > 1)) \
 		|| (((!ft_strncmp("rayon=", name, ft_strlen(name))) || \
 		(!ft_strncmp("hauteur=", name, ft_strlen(name)))) && \
 		(ft_atof(param[i]) < 0)))
 			return (ft_free_tab(param), print_cmd_error(ERR_OUT_OF_BOUNDS), 1);
+		if (!ft_str_isdigit(param[i]))
+			return (ft_free_tab(param), 1);
 	}
 	return (ft_free_tab(param), 0);
-}
-
-int	check_cmd_change_args(char **cmd_splt) // todo
-{
-	(void)cmd_splt;
-	return (print_cmd_error(ERR_CMD_NO_OBJ), 1);
 }
 
 int	print_cmd_error(size_t err)

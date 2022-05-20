@@ -61,6 +61,7 @@ char			**ft_split_charset(char *str, char *charset);
 char			**ft_add_line_tab(char **tab, char *line);
 char			**ft_copy_tab(char **tab);
 int				ft_tab_len(char **tab);
+int				ft_str_isdigit(char *str);
 
 typedef struct s_args_idx
 {
