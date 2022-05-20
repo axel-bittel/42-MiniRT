@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 00:59:23 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/19 11:03:07 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/20 17:57:30 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # define TYPE_SPHERE 1
 # define TYPE_PLANE 2
 # define TYPE_CYLINDER 3
-# define PI 3.14
 
 typedef struct s_ray
 {

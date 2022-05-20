@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 21:59:49 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/19 11:10:40 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/20 17:50:37 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ data->scene->l_amb.ratio);
 		res->intensitys[i] = mult_scal(res->intensitys[i], \
 data->scene->l_tab[i]->intensity * data->scene->l_tab[i]->ratio * \
 maxf(0.f, dot_product(res->normal, diff_vects(data->scene->\
-l_tab[i]->pos, res->intersec))) / (4.f * PI * norm_square(\
+l_tab[i]->pos, res->intersec))) / (4.f * M_PI * norm_square(\
 diff_vects(data->scene->l_tab[i]->pos, res->intersec))));
 		res->intensitys[i].x = powf(res->intensitys[i].x, 1.f / 2.22f);
 		res->intensitys[i].y = powf(res->intensitys[i].y, 1.f / 2.22f);

@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 18:02:18 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/19 11:28:18 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/20 17:51:05 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	parser_add_c(t_datas *data, char **line_spl)
 {
 	data->scene->cam.pos = read_vect(line_spl[1], data);
 	data->scene->cam.dir = read_vect(line_spl[2], data);
-	data->fov = (ft_atof(line_spl[3]) * PI) / 180;
-	if (!is_good_dir(data->scene->cam.dir, data) || data->fov * 180 / PI > \
-180.f || data->fov * 180 / PI < 0.f)
+	data->fov = (ft_atof(line_spl[3]) * M_PI) / 180;
+	if (!is_good_dir(data->scene->cam.dir, data) || data->fov * 180 / M_PI > \
+180.f || data->fov * 180 / M_PI < 0.f)
 		print_error(data, ERR_DATA);
 	data->scene->cam_right = norm_vect(prod_vect(data->scene->cam.dir, \
 	(t_vect3){0.f, -1.f, 0.f}));

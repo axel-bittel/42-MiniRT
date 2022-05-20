@@ -6,7 +6,7 @@
 /*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 21:59:49 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/19 11:10:51 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/20 17:50:43 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ data->scene->l_amb.color.z);
 data->scene->l_amb.ratio);
 	res->intensity_two = mult_scal(data->scene->objs[k]->color, \
 data->scene->l.intensity * data->scene->l.ratio * maxf(0.f, dot_product(\
-res->normal, diff_vects(data->scene->l.pos, res->intersec))) / (4.f * PI * \
+res->normal, diff_vects(data->scene->l.pos, res->intersec))) / (4.f * M_PI * \
 norm_square(diff_vects(data->scene->l.pos, res->intersec))));
 	res->intensity_two.x = powf(res->intensity_two.x, 1.f / 2.22f);
 	res->intensity_two.y = powf(res->intensity_two.y, 1.f / 2.22f);
