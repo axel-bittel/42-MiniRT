@@ -130,7 +130,7 @@ ${LIBFT_LIB} 	:
 all			:	${NAME}
 
 bonus		:	$(OLIBVISUAL) ${OBSRCS} ${LIBFT_LIB} ${MLX_LIB}
-				${CC} ${CFLAGS} ${OFLAGS} ${LDFLAGS} ${MLXFLAGS} $(OLIBVISUAL) ${OBSRCS} -o $(NAMEB) -g
+				${CC} $(OLIBVISUAL) ${OBSRCS} ${CFLAGS} ${OFLAGS} ${LDFLAGS} ${MLXFLAGS} -o $(NAMEB) -g
 #$(CC) $(OLIBVISUAL) ${OBSRCS} ${INCLUDES} ${LDFLAGS} -L${LIBVISUAL_DIR}/minilibx-linux -lm -lmlx -lXext -lX11 -lm -lz -o $(NAME) -g
 
 clean :

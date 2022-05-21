@@ -18,7 +18,7 @@ static int	ft_putfloat_rec(int n, int fd, int precesion)
 {
 	char	res;
 
-	if (!n)
+	if (!n && precesion < 0)
 		return (0);
 	else
 	{

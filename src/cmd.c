@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 18:18:55 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/20 19:25:45 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/21 15:28:08 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ int	exec_list_cmd(t_datas *data)
 	print_lights_prop(data);
 	while (data->scene->objs[++i])
 	{
+		printf("%d ", i + 3);
 		ft_putnbr_fd(i + 3, 1);
-		ft_putstr_fd(" ", 1);
 		if (data->scene->objs[i]->type == TYPE_SPHERE)
 			print_sphere_prop((t_sphere *)data->scene->objs[i]->obj);
 		if (data->scene->objs[i]->type == TYPE_CYLINDER)
@@ -72,7 +72,7 @@ int	exec_list_cmd(t_datas *data)
 		if (data->scene->objs[i]->type == TYPE_PLANE)
 			print_plane_prop((t_plane *)data->scene->objs[i]->obj);
 		print_vect(data->scene->objs[i]->color, "color=");
-		ft_putstr_fd("\n", 1);
+		printf("\n");
 	}
 	return (1);
 }
