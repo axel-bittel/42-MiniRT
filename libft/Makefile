@@ -20,9 +20,9 @@ NAME	=	libft.a
 all : ${NAME}
 
 %.o: %.c
-	gcc -Wall -Werror -Wextra -c $< -o ${<:.c=.o}
+	gcc -Wall -Werror -Wextra -c $< -o ${<:.c=.o} -g
 bonus :	${OSRCS} ${OBONUS}
-	ar crs ${NAME} ${OSRCS} ${OBONUS}
+	ar crs ${NAME} ${OSRCS} ${OBONUS} 
 ${NAME} :	${OSRCS}
 	ar crs ${NAME} ${OSRCS}
 clean :

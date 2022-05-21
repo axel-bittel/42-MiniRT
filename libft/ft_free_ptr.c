@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_ptr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 16:39:44 by rahmed            #+#    #+#             */
-/*   Updated: 2022/05/19 21:17:54 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/21 13:36:19 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	ft_free_tab(char **tab)
 	{
 		while (tab[i] != NULL)
 		{
-			ft_free_ptr(tab[i]);
+			free(tab[i]);
+			//ft_free_ptr(tab[i]);
 			i++;
 		}
 		if (tab != NULL)

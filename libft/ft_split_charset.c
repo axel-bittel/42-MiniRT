@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_charset.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 12:04:58 by rahmed            #+#    #+#             */
-/*   Updated: 2022/05/19 21:16:10 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/21 14:21:21 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,5 @@ char	**ft_split_charset(char *str, char *charset)
 		dest[j][k] = 0;
 		j++;
 	}
-	dest[j] = (NULL);
 	return (dest);
 }
