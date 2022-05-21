@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   math_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 21:22:23 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/21 12:10:50 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/21 14:28:08 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@ int	lunch_cmd(t_datas *data)
 	if (inter == 2)
 		refresh_screen(data);
 	else if (inter == -1)
-		exit (0);
+	{
+		if (data->scene && data->scene->objs)
+			free_tab_obj(data->scene->objs);
+		if (data->scene)
+			free(data->scene);
+		exit(0);
+	}
 	return (1);
 }
