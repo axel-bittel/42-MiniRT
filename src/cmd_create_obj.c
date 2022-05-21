@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_create_obj.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:55:55 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/19 11:09:17 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/21 15:34:52 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	*create_new_sphere(char **str)
 
 	res = malloc(sizeof(t_sphere));
 	res->pos = (get_prop(str, &inter, "pos="), inter);
-	res->rayon = (get_fprop(str, &finter, "rayon="), finter);
+	res->rayon = (get_fprop(str, &finter, "radius="), finter);
 	return ((void *)res);
 }
 
@@ -47,7 +47,7 @@ void	*create_new_cylinder(char **str)
 	res = malloc(sizeof(t_cylinder));
 	res->pos = (get_prop(str, &inter, "pos="), inter);
 	res->dir = (get_prop(str, &inter, "dir="), inter);
-	res->rayon = (get_fprop(str, &finter, "rayon="), finter);
-	res->hauteur = (get_fprop(str, &finter, "hauteur="), finter);
+	res->rayon = (get_fprop(str, &finter, "radius="), finter);
+	res->hauteur = (get_fprop(str, &finter, "height="), finter);
 	return ((void *)res);
 }

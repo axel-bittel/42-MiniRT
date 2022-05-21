@@ -6,7 +6,7 @@
 /*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:58:20 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/21 15:26:06 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/21 15:34:52 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ void	print_cylinder_prop(t_cylinder *cy)
 	print_vect(cy->pos, "pos=");
 	print_vect(cy->dir, "dir=");
 	printf("\033[1;36m\t|\033[0m");
-	printf("rayon=");
+	printf("radius=");
 	printf("%.2f", cy->rayon);
 	printf("\033[1;36m\t|\033[0m");
-	printf("hauteur=");
+	printf("height=");
 	printf("%.2f", cy->hauteur);
 }
 
@@ -45,7 +45,7 @@ void	print_sphere_prop(t_sphere *cy)
 	printf("\033[1;32msp\033[0m");
 	print_vect(cy->pos, "pos=");
 	printf("\033[1;36m\t|\033[0m");
-	printf("rayon=");
+	printf("radius=");
 	printf("%.2f", cy->rayon);
 	printf("\t");
 }

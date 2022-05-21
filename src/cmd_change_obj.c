@@ -6,7 +6,7 @@
 /*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:59:03 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/21 11:45:50 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/21 15:33:16 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	change_obj_prop_sphere(t_sphere *sp, char **cmd)
 
 	if (get_prop(cmd, &inter, "pos="))
 		sp->pos = inter;
-	if (get_fprop(cmd, &finter, "rayon="))
+	if (get_fprop(cmd, &finter, "radius="))
 		sp->rayon = finter;
 }
 
@@ -49,9 +49,9 @@ void	change_obj_prop_cylinder(t_cylinder *sp, char **cmd)
 	{
 		sp->dir = inter;
 	}
-	if (get_fprop(cmd, &finter, "rayon="))
+	if (get_fprop(cmd, &finter, "radius="))
 		sp->rayon = finter;
-	if (get_fprop(cmd, &finter, "hauteur="))
+	if (get_fprop(cmd, &finter, "height="))
 		sp->hauteur = finter;
 	if (sp->hauteur == 0.f)
 		sp->hauteur = 0.0001f;

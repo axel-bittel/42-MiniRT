@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_parse.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 21:30:32 by rahmed            #+#    #+#             */
-/*   Updated: 2022/05/20 19:57:40 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/21 15:34:52 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,11 +111,11 @@ int	check_cmd_add_args_names(char **cmd_splt)
 	i = 1;
 	old_check = 0;
 	if (cmd_splt[1] && !ft_strncmp(cmd_splt[1], "sp", 3))
-		names = ft_split("pos= rayon= color=", ' ');
+		names = ft_split("pos= radius= color=", ' ');
 	else if (cmd_splt[1] && !ft_strncmp(cmd_splt[1], "pl", 3))
 		names = ft_split("pos= dir= color=", ' ');
 	else if (cmd_splt[1] && !ft_strncmp(cmd_splt[1], "cy", 3))
-		names = ft_split("pos= dir= rayon= hauteur= color=", ' ');
+		names = ft_split("pos= dir= radius= height= color=", ' ');
 	else
 		return (1);
 	while (cmd_splt[++i])

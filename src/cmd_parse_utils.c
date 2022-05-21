@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_parse_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 21:30:32 by rahmed            #+#    #+#             */
-/*   Updated: 2022/05/20 19:56:33 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/21 15:34:52 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ char	**get_arg_change_names(char ***names, int type, int idx)
 	else if (idx >= 0)
 	{
 		if (type == TYPE_CYLINDER)
-			*names = ft_split("pos= dir= rayon= hauteur= color=", ' ');
+			*names = ft_split("pos= dir= radius= height= color=", ' ');
 		if (type == TYPE_PLANE)
 			*names = ft_split("pos= dir= color=", ' ');
 		if (type == TYPE_SPHERE)
-			*names = ft_split("pos= rayon= color=", ' ');
+			*names = ft_split("pos= radius= color=", ' ');
 	}
 	return (*names);
 }
@@ -70,8 +70,8 @@ int	is_valid_arg_value(char *arg, char *name)
 		(ft_atof(param[i]) < 0 || ft_atof(param[i]) > 180)) \
 		|| ((!ft_strncmp("ratio=", name, ft_strlen(name))) && \
 		(ft_atof(param[i]) < 0 || ft_atof(param[i]) > 1)) \
-		|| (((!ft_strncmp("rayon=", name, ft_strlen(name))) || \
-		(!ft_strncmp("hauteur=", name, ft_strlen(name)))) && \
+		|| (((!ft_strncmp("radius=", name, ft_strlen(name))) || \
+		(!ft_strncmp("height=", name, ft_strlen(name)))) && \
 		(ft_atof(param[i]) < 0)))
 			return (ft_free_tab(param), print_cmd_error(ERR_OUT_OF_BOUNDS), 1);
 		if (!ft_str_isdigit(param[i]))
