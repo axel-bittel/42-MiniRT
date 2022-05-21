@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser_add_obj.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 18:02:18 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/20 17:51:05 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/21 11:47:37 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ int	parser_add_cy(t_datas *data, char **line_spl)
 	((t_cylinder *)res->obj)->dir = read_vect(line_spl[2], data);
 	((t_cylinder *)res->obj)->rayon = ft_atof(line_spl[3]);
 	((t_cylinder *)res->obj)->hauteur = ft_atof(line_spl[4]);
+	if (((t_cylinder *)res->obj)->hauteur == 0.0f)
+		((t_cylinder *)res->obj)->hauteur = 0.0001f;
 	res->color = read_vect(line_spl[5], data);
 	if (!is_good_color(res->color, data) || \
 !is_good_dir(((t_cylinder *)res->obj)->dir, data) || \

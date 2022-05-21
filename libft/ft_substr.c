@@ -37,7 +37,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if ((unsigned int )ft_strlen(s) < start || !len)
 	{
 		res[0] = 0;
-		return (res);
+		return (free ((char *)s), res);
 	}
 	while (i - (size_t)start < len && s[i])
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 13:08:35 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/20 20:11:28 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/21 12:19:09 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_datas	*init_mymlx(void)
 	res->w_y = 720;
 	res->mlx = mlx_init();
 	res->mlx_win = mlx_new_window(res->mlx, res->w_x, res->w_y, "MiniRT");
+	init_img(&res->img, res->mlx, res->w_x, res->w_y);
 	res->scene = 0;
 	res->put_cmd = 0;
 	res->cmd = 0;
@@ -31,7 +32,6 @@ t_datas	*init_mymlx(void)
 int	refresh_screen(t_datas *data)
 {
 	ft_putstr_fd("Cumputing...\n", 1);
-	init_img(&data->img, data->mlx, data->w_x, data->w_y);
 	print_scene(data);
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img.img, 0, 0);
 	ft_putstr_fd("DISPLAY\n", 1);
@@ -41,7 +41,7 @@ int	refresh_screen(t_datas *data)
 void	press_cmd(int keycode, t_datas *data, char *inter, t_subimg pos)
 {
 	inter[0] = keycode;
-	if (keycode == 65288)
+	if (keycode == 65288 && ft_strlen(data->cmd))
 		data->cmd = ft_substr(data->cmd, 0, ft_strlen(data->cmd) - 1);
 	else if (keycode >= 32 && keycode <= 127 && !data->cmd)
 		data->cmd = ft_strdup(inter);
@@ -91,7 +91,7 @@ int	press_key(int keycode, t_datas *data)
 
 int	close_win(t_datas *data)
 {
-	mlx_destroy_window(data->mlx, data->mlx_win);
 	mlx_destroy_image(data->mlx, data->img.img);
+	mlx_destroy_window(data->mlx, data->mlx_win);
 	exit(EXIT_SUCCESS);
 }

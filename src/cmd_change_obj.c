@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_change_obj.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 15:59:03 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/20 17:38:45 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/21 11:45:50 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ void	change_obj_prop_cylinder(t_cylinder *sp, char **cmd)
 	if (get_prop(cmd, &inter, "dir="))
 	{
 		sp->dir = inter;
-		if (inter.y < 0.f)
-			inter = mult_scal(sp->dir, -1);
 	}
 	if (get_fprop(cmd, &finter, "rayon="))
 		sp->rayon = finter;
 	if (get_fprop(cmd, &finter, "hauteur="))
 		sp->hauteur = finter;
+	if (sp->hauteur == 0.f)
+		sp->hauteur = 0.0001f;
 }
 
 void	change_obj_light_l(t_datas *data, int idx, char **cmd)

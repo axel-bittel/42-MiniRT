@@ -6,7 +6,7 @@
 /*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 18:02:43 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/19 21:45:43 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/21 11:39:32 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ t_cylinder c, int up)
 	inter_norm = norm_vect(mult_scal(norm_vect(c.dir), up));
 	plan_point = add_vects(mult_scal(mult_scal(norm_vect(c.dir), c.hauteur / \
 2.f), up), c.pos);
+	if (c.hauteur == 0.f)
+		plan_point = c.pos;
 	if (fabsf(dot_product(dir.dir, inter_norm)) > 0.00000001f)
 	{
 		intersec = dot_product(diff_vects(plan_point, dir.pos), inter_norm) / \
@@ -54,7 +56,7 @@ float *t_one, float *t_two)
 	inter = prod_vect(diff_vects(new_dir.pos, c.pos), c.dir);
 	b = 2.f * dot_product(prod_vect(new_dir.dir, c.dir), inter);
 	c_eq = norm_square(inter) - (c.rayon * c.rayon * norm_square(c.dir));
-	if (b * b - 4.f * a * c_eq < 0.f)
+	if (b * b - 4.f * a * c_eq < 0.f || c.rayon == 0.f)
 		return (0);
 	*t_one = (-b - sqrtf(b * b - 4.f * a * c_eq)) / (2.f * a);
 	*t_two = (-b + sqrtf(b * b - 4.f * a * c_eq)) / (2.f * a);
@@ -70,7 +72,8 @@ int	is_int_bd_cy(t_ray new_dir, t_cylinder c, float *inter)
 	t_vect3	inter_one;
 	t_vect3	inter_two;
 
-	if (!is_intersection_body_sols(new_dir, c, &t_one, &t_two))
+	if (!is_intersection_body_sols(new_dir, c, &t_one, &t_two) \
+	|| c.rayon == 0.f || c.hauteur == 0.f)
 		return (0);
 	inter_one = mult_scal(add_vects(mult_scal(new_dir.dir, t_one), \
 new_dir.pos), (t_one > 0.f));
