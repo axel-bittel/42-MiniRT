@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   intersec_cylinder.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 18:02:43 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/21 11:39:32 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/21 20:54:12 by rahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int	is_int_cy_d(t_ray dir, float *inter, \
-t_cylinder c, int up)
+int	is_int_cy_d(t_ray dir, float *inter, t_cylinder c, int up)
 {
 	t_vect3	inter_inter;
 	t_vect3	inter_norm;
@@ -25,8 +24,6 @@ t_cylinder c, int up)
 	inter_norm = norm_vect(mult_scal(norm_vect(c.dir), up));
 	plan_point = add_vects(mult_scal(mult_scal(norm_vect(c.dir), c.hauteur / \
 2.f), up), c.pos);
-	if (c.hauteur == 0.f)
-		plan_point = c.pos;
 	if (fabsf(dot_product(dir.dir, inter_norm)) > 0.00000001f)
 	{
 		intersec = dot_product(diff_vects(plan_point, dir.pos), inter_norm) / \
