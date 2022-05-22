@@ -14,7 +14,7 @@ NAME			=	MiniRT
 NAMEB			=	MiniRT_bonus
 
 ARG				=	${MAP_DIR}/map.rt
-ARGB			=	${MAP_DIR}/map_bonus.rt
+ARGB			=	${MAP_DIR}/map_tronche.rt
 
 UNAME_S			:=	$(shell uname -s)
 
