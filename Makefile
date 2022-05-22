@@ -46,7 +46,7 @@ FSFLAGS			=	-fsanitize=address
 OFLAGS			=	-Ofast -fno-strict-aliasing \
 					-fomit-frame-pointer -mtune=native -msse4.2 -mfpmath=sse \
 					-march=native -funsafe-math-optimizations -funroll-loops \
-					-ffast-math -flto -finline-functions ${FSFLAGS}
+					-ffast-math -flto -finline-functions #${FSFLAGS}
 
 SRCS			= 	${SRC_DIR}/main.c \
 					${SRC_DIR}/cmd.c \
