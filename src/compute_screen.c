@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   compute_screen.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rahmed <rahmed@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 21:59:49 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/20 17:50:43 by rahmed           ###   ########.fr       */
+/*   Updated: 2022/05/22 11:37:21 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ void	get_shadows(t_datas *data, t_res *res)
 	t_ray	inter_ray;
 
 	inter_ray.pos = res->lst_intersec;
-	inter_ray.pos.x += 0.000001 * res->lst_norm.x;
-	inter_ray.pos.y += 0.000001 * res->lst_norm.y;
-	inter_ray.pos.z += 0.000001 * res->lst_norm.z;
+	inter_ray.pos.x += 0.001 * res->lst_norm.x;
+	inter_ray.pos.y += 0.001 * res->lst_norm.y;
+	inter_ray.pos.z += 0.001 * res->lst_norm.z;
 	inter_ray.dir = norm_vect(diff_vects(data->scene->l.pos, inter_ray.pos));
 	l = -1;
 	while (data->scene->objs[++l])
@@ -74,7 +74,7 @@ void	get_shadows(t_datas *data, t_res *res)
 is_intersection(inter_ray, *data->scene->objs[l], &res->intersec, &res->normal))
 		{
 			if (norm_square(diff_vects(inter_ray.pos, res->intersec)) - \
-norm_square(diff_vects(data->scene->l.pos, inter_ray.pos)) < 0.1f)
+norm_square(diff_vects(data->scene->l.pos, inter_ray.pos)) < 0.001f)
 			{
 				res->intensity_two = mult_scal(res->intensity_two, 0.f);
 				break ;
@@ -106,8 +106,7 @@ int	print_scene(t_datas *data)
 	t_ray	inter;
 
 	i = -1;
-	if (data->scene->cam.dir.x + data->scene->cam.dir.y + \
-data->scene->cam.dir.z == 0.f || data->fov == 0.f)
+	if (is_null(&data->scene->cam.dir) || data->fov == 0.f)
 		return (0);
 	inter.pos = data->scene->cam.pos;
 	while (++i < data->w_y)

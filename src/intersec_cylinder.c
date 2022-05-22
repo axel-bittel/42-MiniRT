@@ -6,7 +6,7 @@
 /*   By: abittel <abittel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 18:02:43 by abittel           #+#    #+#             */
-/*   Updated: 2022/05/21 11:39:32 by abittel          ###   ########.fr       */
+/*   Updated: 2022/05/22 11:18:32 by abittel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,14 +98,14 @@ t_vect3 *inter, t_vect3 *norm)
 	int	is_disque_val;
 
 	is_disque_val = 0;
-	if (is_disque & 8)
-		is_disque_val = 1;
 	if (is_disque & 16)
 		is_disque_val = -1;
+	if (is_disque & 8)
+		is_disque_val = 1;
 	if (is_disque & 32)
 		is_disque_val *= -1;
 	if (is_disque_val)
-		*norm = mult_scal(c.dir, is_disque_val);
+		*norm = norm_vect(mult_scal(c.dir, is_disque_val));
 	else
 		*norm = norm_vect(diff_vects(diff_vects(*inter, c.pos), mult_scal(\
 norm_vect(c.dir), dot_product(diff_vects(*inter, c.pos), norm_vect(c.dir)))));
